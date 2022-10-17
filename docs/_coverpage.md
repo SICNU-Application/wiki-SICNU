@@ -13,4 +13,4 @@
 
 
 [Github](https://github.com/SICNU-Application/wiki-SICNU)
-[进入](#四川师范大学飞跃手册)
+[进入](#wiki-SICNU)
