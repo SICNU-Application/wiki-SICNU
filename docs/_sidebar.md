@@ -2,13 +2,13 @@
 
   - [首页(1)](https://sicnu-application.github.io/wiki-SICNU/#/)
 
-  - [致谢(1)](前言/Acknowledge.md)
+  - [致谢(1)](preface/Acknowledge.md)
 
-  - [关于我们(1)](前言/about_us.md)
+  - [关于我们(1)](preface/about_us.md)
 
-  - [如何分享经验(1)](前言/Sharing_experience.md)
+  - [如何分享经验(1)](preface/Sharing_experience.md)
 
-  - [手册未来规划(1)](前言/future.md)
+  - [手册未来规划(1)](preface/future.md)
 
 - **初入川师大篇：**
 
