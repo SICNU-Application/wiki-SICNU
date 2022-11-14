@@ -15,7 +15,7 @@
 - All Rights Reserved.
 
 
-[Github](https://github.com/SICNU-Application/wiki-SICNU)
-[下滑进入](#wiki-sicnu)
-
+[Github](https://github.com/SICNU-Application/wiki-SICNU) [点击进入](./README)
+<!-- [点击进入](./README.md) --> 
+<!-- 添加背景图片 -->
 ![sicnu风景.jpeg](src/sicnu风景.png)

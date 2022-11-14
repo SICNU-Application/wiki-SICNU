@@ -1,6 +1,6 @@
 - **写在前面：**
 
-  - [首页(1)](https://sicnu-application.github.io/wiki-SICNU/#/)
+  - [首页(1)](README.md)
 
   - [致谢(1)](preface/Acknowledge.md)
 

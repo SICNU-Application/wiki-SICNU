@@ -7,6 +7,12 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+<!-- 评论插件 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+
+
 </head>
 <body>
   <div id="app"></div>
@@ -16,13 +22,54 @@
       repo: ''
       // load DIY SideBar
       ,loadSidebar: true
+      //设置侧边栏的目录名作为正文的标题
+      ,autoHeader: true
+      //侧边栏顶部标题
+      ,name: '飞跃手册-川师大'
+
       // load DIY Cover
       ,coverpage: true
+      //仅加载一次封面
+      // ,onlyCover:true
+      //切换页面后是否自动跳转到页面顶部
+      ,auto2top: true 
+
+      , //全文搜索
+      search: {
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: 'auto',
+        placeholder: '搜索你想要的...',
+        noData: '找不到结果',
+        // 搜索标题的最大程级, 1 - 6
+        depth: 3,
+      }
+
+
 
     }
   </script>
+
+<!-- 评论插件 -->
+<!-- <script>
+  const gitalk = new Gitalk({
+    clientID: '2e9677843c474642164',
+    clientSecret: '7af6573bbab3cd4a94fd27dbf18d6c6c119a025',
+    repo: 'docsifyGuide',
+    owner: 'pycrab',
+    admin: ['pycrab'],
+    distractionFreeMode: true
+  })
+</script> -->
+
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!--全文搜索,直接用官方提供的无法生效-->
+  <script src="https://cdn.bootcss.com/docsify/4.5.9/plugins/search.min.js"></script>
+  <!-- 图片缩放 -->
+  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+
 </body>
 </html>
 
