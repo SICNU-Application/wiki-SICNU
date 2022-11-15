@@ -16,8 +16,9 @@
 - [ ] 国内访问GitHub受限问题，转用码云or？——网站上线后再观察
 - [ ] 个人网站备案(要备案~)
 - [ ] 添加gitalk评论留言功能
+- [ ] 国内访问GitHub Pages受限，尝试Netlify + Github
 - [x] 2022.11.14-购买注册域名：[sicnu.wiki](sicnu.wiki)、添加DNS解析+HTTPS证书、添加搜索导航栏、添加字数统计
-- [x] 2022.11.13-添加封面
+- [x] 2022.11.13-添加封面（若有更好的背景图片可以联系我们~ 感激不尽！
 - [x] 2022.11.4-测试通过git orgnization协作开发
 - [x] 2022.10.5-确定Github Pages+docsify作为建站方案
 
