@@ -1,4 +1,4 @@
-# 飞跃手册 - 川师
+# Sicnu.wiki
 
 ## 公告
 
@@ -34,5 +34,8 @@
 ## 友情链接
 [南方科技大学飞跃手册](https://sustech-application.com/#/?id=%e5%8d%97%e6%96%b9%e7%a7%91%e6%8a%80%e5%a4%a7%e5%ad%a6%e9%a3%9e%e8%b7%83%e6%89%8b%e5%86%8c)  
 [上海交通大学飞跃手册](https://survivesjtu.github.io/SJTU-Application/#/)
+
+
+!> 移动端访问请点击`左下角菜单栏`展开菜单，祝阅读愉快！
 
 `手册搭建：https://www.ahu.wiki/#/%E4%BB%8E0%E5%88%B01%E5%88%9B%E5%BB%BA%E5%AE%89%E5%BE%BD%E5%A4%A7%E5%AD%A6%E9%A3%9E%E8%B7%83%E6%89%8B%E5%86%8C`

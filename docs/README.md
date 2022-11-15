@@ -1,8 +1,9 @@
-# 飞跃手册 - 川师
+## 飞跃手册-川师大[Sicnu.wiki](https://www.sicnu.wiki)
 
 ## 公告
 
 - **飞跃手册 - 川师**于2022年10月4日开始编制，本项目的初衷是为川师学子提供一个经验交流，分享的平台，希望能够帮助到更多的人，诚挚的邀请大家的加入！
+- 域名已注册为：[sicnu.wiki](https://sicnu.wiki),请牢记回家的路哦！
 
 ## 投稿/修改
 
@@ -14,7 +15,7 @@
 
 
 ## 近期更新
-
+- 2022.11.14-域名已注册为：[sicnu.wiki](https://sicnu.wiki)
 ## 飞跃手册-川师 是什么？
 
 编者按：
@@ -36,5 +37,8 @@
 [南方科技大学飞跃手册](https://sustech-application.com/#/?id=%e5%8d%97%e6%96%b9%e7%a7%91%e6%8a%80%e5%a4%a7%e5%ad%a6%e9%a3%9e%e8%b7%83%e6%89%8b%e5%86%8c)
 
 [上海交通大学飞跃手册](https://survivesjtu.github.io/SJTU-Application/#/)
+
+
+!> 移动端访问请点击`左下角菜单栏`展开菜单，祝阅读愉快！
 
 `手册搭建：https://www.ahu.wiki/#/%E4%BB%8E0%E5%88%B01%E5%88%9B%E5%BB%BA%E5%AE%89%E5%BE%BD%E5%A4%A7%E5%AD%A6%E9%A3%9E%E8%B7%83%E6%89%8B%E5%86%8C`
