@@ -32,11 +32,21 @@
 2. 对于熟悉Git操作的同学：请对[docs](https://github.com/SICNU-Application/wiki-SICNU/tree/master/docs)路径下的对应文件夹Pull Request，可参考 [《如何进行经验分享》](https://github.com/SICNU-Application/wiki-SICNU/blob/master/docs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8GitHub%E8%BF%9B%E8%A1%8C%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB.md)，Merge后便即时上线。
 3. 如需更新内容，请及时联系我们！
 
+<!-- ## 贡献者 -->
+<!-- https://contrib.rocks/preview?repo=angular%2Fangular-ja 
+Generate an image of contributors to keep your README.md in sync.
+-->
+<!-- <a href="https://github.com/orgs/SICNU-Application/people">
+  <br><img src="https://contributors-img.web.app/image?repo=SUSTech-Application/SUSTechapplication" />
+</a> -->
+
 
 ## 友情链接
 [南方科技大学飞跃手册](https://sustech-application.com/#/?id=%e5%8d%97%e6%96%b9%e7%a7%91%e6%8a%80%e5%a4%a7%e5%ad%a6%e9%a3%9e%e8%b7%83%e6%89%8b%e5%86%8c)
 
 [上海交通大学飞跃手册](https://survivesjtu.github.io/SJTU-Application/#/)
+
+[一亩三分地--北美申请论坛](http://www.1point3acres.com/)
 
 
 !> 移动端访问请点击`左下角菜单栏`展开菜单，祝阅读愉快！
