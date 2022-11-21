@@ -47,7 +47,8 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-
+<!-- 新增md5.min.js -->
+<script src="https://cdn.bootcss.com/blueimp-md5/2.13.0/js/md5.min.js"></script>
 <script>
   const gitalk = new Gitalk({
     clientID: 'f5c6494823927f00d9db',
@@ -55,8 +56,9 @@
     repo: 'Hello_World',
     owner: 'Ronchy2000',
     admin: ['Ronchy2000'],
+    id:md5(window.location.pathname),
     distractionFreeMode: true,
-    title:"Sicnu-wiki"
+    // title:"Sicnu-wiki"
   })
 </script>
 
