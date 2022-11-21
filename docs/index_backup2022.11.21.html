@@ -7,14 +7,19 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+<!-- 评论插件 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+
   <link rel="shortcut icon" href="src/sicnu校徽.png"  />
 </head>
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: ''
-      ,repo: 'https://github.com/SICNU-Application/wiki-SICNU'
+      name: '',
+      repo: ''
       // load DIY SideBar
       ,loadSidebar: true
       //设置侧边栏的目录名作为正文的标题
@@ -44,21 +49,16 @@
   </script>
 
 <!-- 评论插件 -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-
-<script>
+<!-- <script>
   const gitalk = new Gitalk({
-    clientID: 'f5c6494823927f00d9db',
-    clientSecret: 'bb0f5c8bba7bd5138ca60a9a641b6116634708e1',
-    repo: 'Hello_World',
-    owner: 'Ronchy2000',
-    admin: ['Ronchy2000'],
+    clientID: '2e9677843c474642164',
+    clientSecret: '7af6573bbab3cd4a94fd27dbf18d6c6c119a025',
+    repo: 'docsifyGuide',
+    owner: 'pycrab',
+    admin: ['pycrab'],
     distractionFreeMode: true
   })
-</script>
-
+</script> -->
 
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
