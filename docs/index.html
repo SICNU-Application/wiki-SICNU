@@ -14,6 +14,7 @@
   <script>
     window.$docsify = {
       name: ''
+      //,repo: ''
       ,repo: 'https://github.com/SICNU-Application/wiki-SICNU'
       // load DIY SideBar
       ,loadSidebar: true
@@ -38,8 +39,6 @@
         // 搜索标题的最大程级, 1 - 6
         depth: 3,
       }
-   
-
     }
   </script>
 
@@ -52,42 +51,35 @@
 <!-- 新增md5.min.js -->
 <script src="https://cdn.bootcss.com/blueimp-md5/2.13.0/js/md5.min.js"></script>
 <div id="gitalk-container"></div>
-
-
 <script>
-  decodeURI(title)
   const gitalk = new Gitalk({
     clientID: 'f5c6494823927f00d9db',
     clientSecret: 'bb0f5c8bba7bd5138ca60a9a641b6116634708e1',
     repo: 'Hello_World',
     owner: 'Ronchy2000',
     admin: ['Ronchy2000'],
-    // id:md5(window.location.pathname),
-
-
-
-    labels: ["Gitalk", "Comment"], // GitHub issue 的标签
-    body:"<%- document.title %>：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的内容
+    id:md5(window.location.pathname),
+    //labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+    //body:"<%- document.title %>：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的内容
     distractionFreeMode: true,
     // title:"Sicnu-wiki"
   })
   // 限制 50 个字符
-  if (title != null) {
-      title = decodeURI(title.substring(1, title.length))
-      if (title.length >= 50) {
-          title = title.substring(title.length - 50, title.length)
-      }
-  } else {
-      title = 'home page'
-  }
-
-  window.onhashchange = function(event) {
-    if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
+  // if (title != null) {
+  //     title = decodeURI(title.substring(1, title.length))
+  //     if (title.length >= 50) {
+  //         title = title.substring(title.length - 50, title.length)
+  //     }
+  // } else {
+  //     title = 'home page'
+  // }
+  window.onhashchange = function(event){
+      if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
         location.reload()
+      }
     }
-}
 
-  gitalk.render('gitalk-container');    // 渲染Gitalk评论组件
+  //gitalk.render('gitalk-container');    // 渲染Gitalk评论组件,不需要
 
 </script>
 
@@ -100,7 +92,7 @@
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
   <!-- 字数统计 -->
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-<!-- 表情插件 -->
+  <!-- 表情插件 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
 </body>
 </html>
