@@ -48,6 +48,18 @@ Generate an image of contributors to keep your README.md in sync.
 
 [一亩三分地--北美申请论坛](http://www.1point3acres.com/)
 
+<br>
+<span id="busuanzi_container_site_pv" style='display:none'>
+  本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+  |本站总访客数：<span id="busuanzi_value_site_uv"></span> 人
+</span>
+
+<span id="sitetime"></span><br>
+<span> Copyright@2022-至今</span>
+<br>
+
 
 !> 移动端访问请点击`左下角菜单栏`展开菜单，祝阅读愉快！
 
