@@ -56,7 +56,11 @@
     repo: 'Hello_World',
     owner: 'Ronchy2000',
     admin: ['Ronchy2000'],
-    id:md5(window.location.pathname),
+    // id:md5(window.location.pathname),
+    id: "<%- (window.location.origin + (frontmatter.to.path || window.location.pathname)).slice(-50) %>", //  页面的唯一标识,长度不能超过50
+    title: "「评论」<%- document.title %>", // GitHub issue 的标题
+    labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+    body:"<%- document.title %>：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的内容
     distractionFreeMode: true,
     // title:"Sicnu-wiki"
   })
