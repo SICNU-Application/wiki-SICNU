@@ -7,19 +7,25 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-<!-- 评论插件 -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
-  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-
-
+  <link rel="shortcut icon" href="src/sicnu校徽.png"  />
+  <!-- 百度统计，网站访问量 -->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a4a069338ddb00e6fed52b6b6dc57758";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 </head>
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: '',
-      repo: ''
+      name: ''
+      //,repo: ''
+      ,repo: 'https://github.com/SICNU-Application/wiki-SICNU'
       // load DIY SideBar
       ,loadSidebar: true
       //设置侧边栏的目录名作为正文的标题
@@ -30,7 +36,7 @@
       // load DIY Cover
       ,coverpage: true
       //仅加载一次封面
-      // ,onlyCover:true
+      ,onlyCover:true
       //切换页面后是否自动跳转到页面顶部
       ,auto2top: true 
 
@@ -43,23 +49,115 @@
         // 搜索标题的最大程级, 1 - 6
         depth: 3,
       }
-
-
-
     }
   </script>
 
 <!-- 评论插件 -->
-<!-- <script>
-  const gitalk = new Gitalk({
-    clientID: '2e9677843c474642164',
-    clientSecret: '7af6573bbab3cd4a94fd27dbf18d6c6c119a025',
-    repo: 'docsifyGuide',
-    owner: 'pycrab',
-    admin: ['pycrab'],
-    distractionFreeMode: true
-  })
-</script> -->
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+<!-- 新增md5.min.js -->
+<script src="https://cdn.bootcss.com/blueimp-md5/2.13.0/js/md5.min.js"></script>
+<!-- 不蒜子-访问量统计，内测无法使用 -->
+<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+
+<!-- 运行时间统计 -->
+<script language=javascript>
+  function siteTime() {
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth() + 1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2022, 10, 4, 00, 00, 00); //2022-10-4 00:00:00
+    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+    var diff = t2 - t1;
+    var diffYears = Math.floor(diff / years);
+    var diffDays = Math.floor((diff / days) - diffYears * 365);
+    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+    document.getElementById("sitetime").innerHTML = " 本网站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒 ";
+  }
+  siteTime();
+</script>
+
+
+<div id="gitalk-container"></div>
+<script>
+  const gitalk = new gitalkConfig({
+    clientID: 'f5c6494823927f00d9db',
+    clientSecret: 'bb0f5c8bba7bd5138ca60a9a641b6116634708e1',
+    repo: 'Hello_World',
+    owner: 'Ronchy2000',
+    admin: ['Ronchy2000'],
+    // id:md5(window.location.pathname),
+    id:location.hash.substr(1),
+    // id: window.location.pathname,    // 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
+    //labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+    //body:"<%- document.title %>：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的内容
+    distractionFreeMode: false,
+    // title:"Sicnu-wiki"
+
+  }
+  );
+  plugins: [
+    function (hook, vm) {
+        hook.doneEach(function () {
+            var label, domObj, main, divEle, gitalk;
+            label = vm.route.path.split("/").pop();
+            domObj = Docsify.dom;
+            main = domObj.getNode("#main");
+
+            /**
+             * render gittalk
+             */
+            if (vm.route.path.includes("zh-cn")) {
+                gitalkConfig.language = "zh-CN";
+            }
+            Array.apply(
+                null,
+                document.querySelectorAll("div.gitalk-container")
+            ).forEach(function (ele) {
+                ele.remove();
+            });
+            divEle = domObj.create("div");
+            divEle.id = "gitalk-container-" + label;
+            divEle.className = "gitalk-container";
+            divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
+            domObj.appendTo(domObj.find(".content"), divEle);
+            gitalk = new Gitalk(
+                Object.assign(gitalkConfig, {
+                    id: !label ? "home" : label
+                })
+            );
+            // gitalk.render("gitalk-container-" + label);
+        })
+    }
+]
+
+
+  //gitalk.render('gitalk-container');    // 渲染Gitalk评论组件,不需要
+
+</script>
 
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
@@ -69,7 +167,8 @@
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
   <!-- 字数统计 -->
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-
+  <!-- 表情插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
 </body>
 </html>
 
