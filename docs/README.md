@@ -13,11 +13,9 @@
 
 - 【腾讯文档】飞跃手册意见征集表 -i（待创建
 
-
 ## 近期更新
 - 2022.11.14-域名已注册为：[sicnu.wiki](https://sicnu.wiki)
 ## 飞跃手册-川师 是什么？
-
 编者按：
 >首先感谢小伙伴们阅读飞跃手册。<br>
 >早在2015年，上海交大的学生们发起了一项《上海交大生存手册》，其后身为《交大飞跃手册》，后来又陆续出现了《南科大飞跃手册》，《海南大学飞跃手册》，《南京工业大学飞跃手册》等。受此些项目的启发，结合编者自身所经历的学习环境，创建《飞跃手册-川师大》。该项目希望为川师学子，广大学生们提供一个总结经验、交流经验的平台。
@@ -27,7 +25,6 @@
 1. 对于没有Git使用背景的大部分同学：请将编辑好的`Word`/`Pages`/`Markdown`文件发送到sicnu_wiki@126.com，我们会帮助你上架。
 2. 对于熟悉Git操作的同学：请对[docs](https://github.com/SICNU-Application/wiki-SICNU/tree/master/docs)路径下的对应文件夹Pull Request，可参考 [《如何进行经验分享》](https://github.com/SICNU-Application/wiki-SICNU/blob/master/docs/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8GitHub%E8%BF%9B%E8%A1%8C%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB.md)，Merge后便即时上线。
 3. 如需更新内容，请及时联系我们！
-
 
 
 ## 友情链接
