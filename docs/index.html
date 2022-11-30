@@ -24,8 +24,8 @@
   <script>
     window.$docsify = {
       name: ''
-      //,repo: ''
-      ,repo: 'https://github.com/SICNU-Application/wiki-SICNU'
+      ,repo: ''
+      // ,repo: 'https://github.com/SICNU-Application/wiki-SICNU'
       // load DIY SideBar
       ,loadSidebar: true
       //设置侧边栏的目录名作为正文的标题
@@ -99,66 +99,6 @@
   }
   siteTime();
 </script>
-
-
-<div id="gitalk-container"></div>
-<script>
-  const gitalk = new gitalkConfig({
-    clientID: 'f5c6494823927f00d9db',
-    clientSecret: 'bb0f5c8bba7bd5138ca60a9a641b6116634708e1',
-    repo: 'Hello_World',
-    owner: 'Ronchy2000',
-    admin: ['Ronchy2000'],
-    // id:md5(window.location.pathname),
-    id:location.hash.substr(1),
-    // id: window.location.pathname,    // 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
-    //labels: ["Gitalk", "Comment"], // GitHub issue 的标签
-    //body:"<%- document.title %>：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的内容
-    distractionFreeMode: false,
-    // title:"Sicnu-wiki"
-
-  }
-  );
-  plugins: [
-    function (hook, vm) {
-        hook.doneEach(function () {
-            var label, domObj, main, divEle, gitalk;
-            label = vm.route.path.split("/").pop();
-            domObj = Docsify.dom;
-            main = domObj.getNode("#main");
-
-            /**
-             * render gittalk
-             */
-            if (vm.route.path.includes("zh-cn")) {
-                gitalkConfig.language = "zh-CN";
-            }
-            Array.apply(
-                null,
-                document.querySelectorAll("div.gitalk-container")
-            ).forEach(function (ele) {
-                ele.remove();
-            });
-            divEle = domObj.create("div");
-            divEle.id = "gitalk-container-" + label;
-            divEle.className = "gitalk-container";
-            divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
-            domObj.appendTo(domObj.find(".content"), divEle);
-            gitalk = new Gitalk(
-                Object.assign(gitalkConfig, {
-                    id: !label ? "home" : label
-                })
-            );
-            // gitalk.render("gitalk-container-" + label);
-        })
-    }
-]
-
-
-  //gitalk.render('gitalk-container');    // 渲染Gitalk评论组件,不需要
-
-</script>
-
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     <!--全文搜索,直接用官方提供的无法生效-->
@@ -169,10 +109,36 @@
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
   <!-- 表情插件 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+
+<style>
+  .giscus{
+  margin: 0;
+  width: 65%;
+  /* float:right; */
+  position: relative;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top:100%;
+}
+</style>
+<!-- giscus评论插件 -->
+<script src="https://giscus.app/client.js"
+        data-repo="SICNU-Application/wiki-SICNU"
+        data-repo-id="R_kgDOIIN1SA"
+        data-category="Comments"
+        data-category-id="DIC_kwDOIIN1SM4CS1Jh"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
 </body>
 </html>
-
-
-
-
-
