@@ -1,9 +1,4 @@
-<style>
-.heading2{
-  overflow: auto;
-}
-</style>
-## 飞跃手册-川师大[Sicnu.wiki](https://www.sicnu.wiki) {#identifier .heading2}
+## 飞跃手册-川师大[Sicnu.wiki](https://www.sicnu.wiki)
 
 ## 公告
 
