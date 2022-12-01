@@ -4,17 +4,17 @@
 
 2. 登陆后进入[这个页面](https://github.com/SICNU-Application/wiki-SICNU/tree/master/docs)，打开一个你希望分享的页面，如``升学就业篇``->``物理与电子工程学院``，这篇文章将会一直以此为例进行说明。
 
-![Fig.1](_media/经验分享步骤/Fig1.png)
+![Fig.1](src/_media/经验分享步骤/Fig1.png)
 
-![Fig.2](_media/经验分享步骤/Fig2.png)
+![Fig.2](src/_media/经验分享步骤/Fig2.png)
 
 3. 点击`Create new file`按钮。
 
-![Fig.3](_media/经验分享步骤/Fig3.png)
+![Fig.3](src/_media/经验分享步骤/Fig3.png)
 
 命名方式为：`年级-专业-姓名.md`。如：`2019级-物理与电子工程学院-电子信息工程-陆荣琦.md`。注意不要漏掉后缀`.md`。
 
-![Fig.4](_media/经验分享步骤/Fig4.png)
+![Fig.4](src/_media/经验分享步骤/Fig4.png)
 
 将你想要分享的内容填写在上图`Edit new file` 的下方。我们在此提供模板（下文为保研分享模板），同学们只需要改动其中的汉字部分即可。
 
@@ -72,23 +72,23 @@
 更多格式需求请参考 https://siriusq.top/Markdown写作语法.html
 ```
 
-![Fig.5](_media/经验分享步骤/Fig5.png)
+![Fig.5](src/_media/经验分享步骤/Fig5.png)
 
 点击`Preview`按钮可以进行预览。
 
-![Fig.6](_media/经验分享步骤/Fig6.png)
+![Fig.6](src/_media/经验分享步骤/Fig6.png)
 
 4. 填写好内容后点击`Propose new file`按钮。
 
-![Fig.7](_media/经验分享步骤/Fig7.png)
+![Fig.7](src/_media/经验分享步骤/Fig7.png)
 
 5. 点击`Create pull request`按钮。
 
-![Fig.8](_media/经验分享步骤/Fig8.png)
+![Fig.8](src/_media/经验分享步骤/Fig8.png)
 
 6. 确保`Allow edits by maintainers`是被选中状态，点击`Create pull request`按钮。
 
-![Fig.9](_media/经验分享步骤/Fig9.png)
+![Fig.9](src/_media/经验分享步骤/Fig9.png)
 
 7.大功告成。
 
