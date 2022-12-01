@@ -10,7 +10,7 @@
 
 **另外：**
 
-**对于熟悉或者想学习GitHub操作的同学**：无需投稿至邮箱，直接对[docs](https://github.com/SICNU-Application/wiki-SICNU/tree/master/docs)路径下对应的文件夹Pull Request即可，可参考 [《如何使用GitHub进行经验分享-保姆级教程》](如何使用GitHub进行经验分享.md)。内容经过我们Merge后便会上架。
+**对于熟悉或者想学习GitHub操作的同学**：无需投稿至邮箱，直接对[docs](https://github.com/SICNU-Application/wiki-SICNU/tree/master/docs)路径下对应的文件夹Pull Request即可，可参考 [《如何使用GitHub进行经验分享-保姆级教程》](../如何使用GitHub进行经验分享.md)。内容经过我们Merge后便会上架。
 
 偷偷告诉你，除了分享“升学就业经验”，分享“大学如何度过”、“大学学习篇”板块的经验，也是非常非常棒的选择！
 
