@@ -22,6 +22,11 @@
     | 🚴‍♂️ 本站总访客数：<span id="busuanzi_value_site_uv"></span> 人
 </span>
 <br>
+<br>
+<!-- 添加star, fork徽标 -->
+<a href='https://github.com/SICNU-Application/wiki-SICNU/stargazers'><img src='https://img.shields.io/github/stars/SICNU-Application/wiki-SICNU' alt='star'></img></a>
+<a href='https://github.com/SICNU-Application/wiki-SICNU/network/members'><img src='https://img.shields.io/github/forks/SICNU-Application/wiki-SICNU' alt='fork'></img></a>
+<br>
 
 [Github](https://github.com/SICNU-Application/wiki-SICNU) [点击进入](./README)
 
