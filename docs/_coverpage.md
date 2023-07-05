@@ -7,7 +7,6 @@
 </p>
 
 
-
 <middle><font color="276E51"><font size = "5">四川师范大学-飞跃手册</font></font></middle>
 
 - SICNU wiki Since 2022.10 
