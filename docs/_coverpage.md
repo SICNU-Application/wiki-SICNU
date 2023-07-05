@@ -1,8 +1,8 @@
 
 <!-- 图片 -->
 <p align="center">
-  <a href="https://sicnu-application.github.io/wiki-SICNU/#/">
-    <img alt="docsify" src="src/sicnu校徽.png" height="130">
+  <a href="https://sicnu.wiki">
+    <img alt="docsify" src="src/sicnu校徽.webp" height="130">
   </a>
 </p>
 
@@ -31,4 +31,4 @@
 
 <!-- [点击进入](./README.md) --> 
 <!-- 添加背景图片 -->
-![sicnu风景.jpeg](src/sicnu风景.png)
+![sicnu风景.jpeg](src/sicnu风景.webp)
