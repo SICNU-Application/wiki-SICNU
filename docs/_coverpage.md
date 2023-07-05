@@ -14,8 +14,17 @@
 &nbsp;&nbsp;&nbsp; 
 - All Rights Reserved.
 
+<br>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    👀 本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    | 🚴‍♂️ 本站总访客数：<span id="busuanzi_value_site_uv"></span> 人
+</span>
+<br>
 
 [Github](https://github.com/SICNU-Application/wiki-SICNU) [点击进入](./README)
+
 <!-- [点击进入](./README.md) --> 
 <!-- 添加背景图片 -->
 ![sicnu风景.jpeg](src/sicnu风景.png)
