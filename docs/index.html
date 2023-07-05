@@ -64,26 +64,26 @@
 <!-- <script src="https://cdn.bootcss.com/blueimp-md5/2.13.0/js/md5.min.js"></script> -->
 <script src="./_assert/md5.min.js"></script>
 <script>
-function url_parse(url) {
-        var left = url.indexOf('/#/');
-        if(left < 0) {
-          return url;
-        }
+// function url_parse(url) {
+//         var left = url.indexOf('/#/');
+//         if(left < 0) {
+//           return url;
+//         }
 
-        var right = url.lastIndexOf('?');
-        if (right <= 0 || right < left) {
-          right = url.length;
-        }
-        return url.substring(left, right);
-    }
+//         var right = url.lastIndexOf('?');
+//         if (right <= 0 || right < left) {
+//           right = url.length;
+//         }
+//         return url.substring(left, right);
+//     }
 
-    function get_talk_id() {
-      gittalk_id = url_parse(location.href);
-      console.log('href', location.href, 'id', gittalk_id);
-      if(gittalk_id.length > 45) {
-        gittalk_id = md5(gittalk_id);
-      }
-    }
+//     function get_talk_id() {
+//       gittalk_id = url_parse(location.href);
+//       console.log('href', location.href, 'id', gittalk_id);
+//       if(gittalk_id.length > 45) {
+//         gittalk_id = md5(gittalk_id);
+//       }
+//     }
 
   const gitalk = new Gitalk({
     clientID: 'f5c6494823927f00d9db',
@@ -92,7 +92,8 @@ function url_parse(url) {
     owner: 'Ronchy2000',
     admin: ['Ronchy2000'],
     distractionFreeMode: false,
-    id:'wiki-SICNU-Comment'
+    // id:'wiki-SICNU-Comment' //配合使用时可以在一个文档共用一个issue！
+    id:md5(location.href)
   })
 </script>
 
