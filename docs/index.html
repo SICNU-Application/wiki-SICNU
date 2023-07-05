@@ -61,29 +61,21 @@
 
 
 <!-- 新增md5.min.js -->
-<!-- <script src="https://cdn.bootcss.com/blueimp-md5/2.13.0/js/md5.min.js"></script> -->
 <script src="./_assert/md5.min.js"></script>
 <script>
-// function url_parse(url) {
-//         var left = url.indexOf('/#/');
-//         if(left < 0) {
-//           return url;
-//         }
-
-//         var right = url.lastIndexOf('?');
-//         if (right <= 0 || right < left) {
-//           right = url.length;
-//         }
-//         return url.substring(left, right);
-//     }
-
-//     function get_talk_id() {
-//       gittalk_id = url_parse(location.href);
-//       console.log('href', location.href, 'id', gittalk_id);
-//       if(gittalk_id.length > 45) {
-//         gittalk_id = md5(gittalk_id);
-//       }
-//     }
+  category_name = location.hash.match(/#(.*?)([?]|$)/)
+  if(category_name != null){
+    category_name = location.hash.match(/#(.*?)([?]|$)/)[1]
+  }
+  // 限制 50 个字符
+  if (category_name != null) {
+    category_name = decodeURI(category_name.substring(1, category_name.length))
+      if (category_name.length >= 50) {
+        category_name = category_name.substring(category_name.length - 50, category_name.length)
+      }
+    } else {
+      category_name = 'home page'
+    }
 
   const gitalk = new Gitalk({
     clientID: 'f5c6494823927f00d9db',
@@ -92,9 +84,15 @@
     owner: 'Ronchy2000',
     admin: ['Ronchy2000'],
     distractionFreeMode: false,
-    // id:'wiki-SICNU-Comment' //配合使用时可以在一个文档共用一个issue！
-    id:md5(location.href)
+    title: category_name,
+    id:category_name,
   })
+  // 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
+  window.onhashchange = function(event){
+      if(event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+        location.reload()
+      }
+  }
 </script>
 
 <!-- 不蒜子-访问量统计，内测无法使用 -->
