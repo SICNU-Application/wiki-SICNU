@@ -8,18 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="shortcut icon" href="src/sicnu校徽.png"  />
-  <!-- 百度统计，网站访问量 -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?a4a069338ddb00e6fed52b6b6dc57758";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-  
-  
+
 </head>
 <body>
   <div id="app"></div>
@@ -34,14 +23,12 @@
       ,autoHeader: true
       //侧边栏顶部标题
       ,name: '飞跃手册-川师大'
-
       // load DIY Cover
       ,coverpage: true
       //仅加载一次封面
       ,onlyCover:true
       //切换页面后是否自动跳转到页面顶部
       ,auto2top: true 
-
       , //全文搜索
       search: {
         maxAge: 86400000, // 过期时间，单位毫秒，默认一天
@@ -58,8 +45,6 @@
 <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
 <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
 <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-
 <!-- 新增md5.min.js -->
 <script src="./_assert/md5.min.js"></script>
 <script>
@@ -76,7 +61,6 @@
     } else {
       category_name = 'home page'
     }
-
   const gitalk = new Gitalk({
     clientID: 'f5c6494823927f00d9db',
     clientSecret: '6c3556208ed01592ec10f0f5056408200b9d0f88',
@@ -96,7 +80,7 @@
 </script>
 
 <!-- 不蒜子-访问量统计，内测无法使用 -->
-<!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <!-- 运行时间统计 -->
 <script language=javascript>
@@ -146,36 +130,8 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   <!-- docsify-updated -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.js"></script> -->
-<!-- 
-<style>
-  .giscus{
-  margin: 0;
-  width: 65%;
-  /* float:right; */
-  position: relative;
-  left: 0;
-  margin-left: auto;
-  margin-right: auto;
-  /* top:100%; */
-}
-</style> -->
-<!-- giscus评论插件 -->
-<!-- <script src="https://giscus.app/client.js"
-        data-repo="SICNU-Application/wiki-SICNU"
-        data-repo-id="R_kgDOIIN1SA"
-        data-category="Comments"
-        data-category-id="DIC_kwDOIIN1SM4CS1Jh"
-        data-mapping="title"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-</script> -->
-
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
 </body>
 </html>
