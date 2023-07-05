@@ -38,6 +38,14 @@
         // 搜索标题的最大程级, 1 - 6
         depth: 3,
       }
+      // 添加最后更新日期功能。https://github.com/rxmapple/docsify-last-modified
+      ,lastModified:{
+        repo:'SICNU-Application/wiki-SICNU'
+        ,basePath: 'docs/'
+        ,preString: "-------------- 最后更新时间:"
+        ,dateFormat: "{YYYY} 年 {MM} 月 {DD} 日--------------"
+        ,align:'right'
+      }
     }
   </script>
 
@@ -129,7 +137,8 @@
   <!-- 表情插件 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   <!-- docsify-updated -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.js"></script> -->
+  <script src="//cdn.jsdelivr.net/npm/tinydate@1.3.0/dist/tinydate.min.js"></script>
+  <script src="./src/docsify-last-modified.js"></script>
 
 </body>
 </html>
