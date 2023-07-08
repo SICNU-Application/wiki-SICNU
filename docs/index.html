@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+  <!-- 白天、夜间模式切换 -->
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css" disabled>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" >
+  
   <meta charset="UTF-8">
   <title>四川师范大学飞跃手册</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <!-- 默认样式 -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <!-- 白天、夜间模式切换 -->
-  <!-- 待添加... -->
-
-  
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
   <link rel="shortcut icon" href="src/sicnu校徽.png"  />
 
 </head>
@@ -20,6 +21,12 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
+      switchLightDarkMode: {
+        useSwitchMode: true,
+        top: 130,
+        right: 26,
+        svgColor: '#7d7b75',
+      },
       name: ''
       ,repo: ''
       // ,repo: 'https://github.com/SICNU-Application/wiki-SICNU'
@@ -51,8 +58,8 @@
         ,preString: "--- 最后更新: "
         ,dateFormat: "{YYYY} 年 {MM} 月 {DD} 日---"
         ,align:'right'
-      }
-    }
+      },
+    };
   </script>
 
 <!-- 评论插件 -->
@@ -109,7 +116,7 @@
   <!-- docsify-updated -->
   <script src="//cdn.jsdelivr.net/npm/tinydate@1.3.0/dist/tinydate.min.js"></script>
   <script src="./src/docsify-last-modified.js"></script> 
-
-
+  <!-- docsify-simple-dark-mode plugin -->
+  <script src="https://cdn.jsdelivr.net/gh/pikapikapikaori/docsify-simple-dark-mode@latest/src/switchLightDarkMode.js"></script>
 </body>
 </html>
