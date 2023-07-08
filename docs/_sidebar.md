@@ -4,7 +4,7 @@
 
   - [致谢(1)](preface/Acknowledge.md)
 
-  - [关于我们(1)](preface/About_us.md)
+  - [关于我们(1)](preface/关于我们.md)
 
   - [如何分享经验(1)](preface/Sharing_experience.md)
 
