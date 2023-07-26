@@ -4,19 +4,19 @@
 
 2. 登陆后进入[这个页面](https://github.com/SICNU-Application/wiki-SICNU/tree/master/docs)，打开一个你希望分享的页面，如``升学就业篇``->``物理与电子工程学院``，这篇文章将会一直以此为例进行说明。
 
-![Fig.1](src/_media/经验分享步骤/Fig1.png)
+![Fig.1](https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/Fig1.png)
 
-![Fig.2](src/_media/经验分享步骤/Fig2.png)
+![Fig.2](https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/Fig2.png)
 
-3. 点击`Create new file`按钮。
+- 点击`Create new file`按钮。
 
-![Fig.3](src/_media/经验分享步骤/Fig3.png)
+![Fig.3](https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/Fig3.png)
 
-命名方式为：`年级-专业-姓名.md`。如：`2019级-物理与电子工程学院-电子信息工程-陆荣琦.md`。注意不要漏掉后缀`.md`。
+- 命名方式为：`年级-专业-姓名.md`。如：`2019级-物理与电子工程学院-电子信息工程-陆荣琦.md`。注意不要漏掉后缀`.md`。
 
-![Fig.4](src/_media/经验分享步骤/Fig4.png)
+![Fig.4](https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/Fig4.png)
 
-将你想要分享的内容填写在上图`Edit new file` 的下方。我们在此提供模板（下文为保研分享模板），同学们只需要改动其中的汉字部分即可。
+3. 将你想要分享的内容填写在上图`Edit new file` 的下方。我们在此提供模板（下文为保研分享模板），同学们只需要改动其中的汉字部分即可。
 
 ```markdown
 # 年级-专业-姓名-录取学校名    在这里为自己的分享起一个标题
@@ -72,33 +72,29 @@
 更多格式需求请参考 https://siriusq.top/Markdown写作语法.html
 ```
 
-![Fig.5](src/_media/经验分享步骤/Fig5.png)
+![Fig.5](https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/Fig5.png)
 
-点击`Preview`按钮可以进行预览。
+- 点击`Preview`按钮可以进行预览。
 
-![Fig.6](src/_media/经验分享步骤/Fig6.png)
+![Fig.6](https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/Fig6.png)
 
 4. 填写好内容后点击`Propose new file`按钮。
 
-![Fig.7](src/_media/经验分享步骤/Fig7.png)
+![Fig.7](https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/Fig7.png)
 
 5. 点击`Create pull request`按钮。
 
-![Fig.8](src/_media/经验分享步骤/Fig8.png)
+![Fig.8](https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/Fig8.png)
 
 6. 确保`Allow edits by maintainers`是被选中状态，点击`Create pull request`按钮。
 
-![Fig.9](src/_media/经验分享步骤/Fig9.png)
+![Fig.9](https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/Fig9.png)
 
 7.大功告成。
 
-首先请我们代表学弟学妹，感谢你愿意分享自己宝贵的经历，同时我们也要感谢你选择了自食其力的方式，这为我们节省了大量格式转换的时间，现在我们只需专注于修改、审核即可。同时我们要恭喜你拥有了自己的`Github`账号并且了解了`.md`也就是`Markdown`这种神奇的事物。希望这个账号不会就此荒废，因为`Github`是这个世界上最富饶的代码库，你几乎可以找到任何你想要的东西。
+首先我们代表学弟学妹，感谢您愿意分享自己宝贵的经历，同时我们也要感谢你选择了自食其力的方式，这为我们节省了大量格式转换的时间，现在我们只需专注于修改、审核即可。同时我们要恭喜你拥有了自己的`Github`账号并且了解了`.md`也就是`Markdown`这种神奇的事物。希望这个账号不会就此荒废，因为`Github`是这个世界上最富饶的代码库，你几乎可以找到任何你想要的东西。
 
-最后，祝前程似锦。
+## 最后，祝前程似锦。
 
-
-
-
-------------
 
 ##### 本操作步骤文稿修改自[南方科技大学飞跃手册](https://sustech-application.github.io/2020-Fall/#/如何进行经验分享)
