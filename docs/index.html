@@ -15,12 +15,36 @@
   <!-- 默认样式 -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
   <link rel="shortcut icon" href="src/sicnu校徽.png"  />
+  <!-- 设置上下页跳转字体大小 -->
+  <style>
+    .pagination-item-title {
+      font-size: 1em !important;
+    }
+  </style>
 
+  
 </head>
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
+    // 上下页跳转
+    pagination: { 
+      previousText: '上一章节',
+      nextText: {
+       '/en/': 'NEXT',
+       '/': '下一章节'
+      },
+    crossChapter: true,
+    crossChapterText: true,
+    },
+    // 字数统计设置
+      count:{
+        countable: true,
+        position: 'top',
+        fontsize:'1em',
+      },
+    //颜色管理插件
       switchLightDarkMode: {
         useSwitchMode: true,
         top: 130,
@@ -41,7 +65,7 @@
       //仅加载一次封面
       ,onlyCover:true
       //切换页面后是否自动跳转到页面顶部
-      ,auto2top: true 
+      ,auto2top: true
       , //全文搜索
       search: {
         maxAge: 86400000, // 过期时间，单位毫秒，默认一天
@@ -118,5 +142,9 @@
   <script src="./src/_assert/docsify-last-modified.js"></script> 
   <!-- docsify-simple-dark-mode plugin -->
   <script src="https://cdn.jsdelivr.net/gh/pikapikapikaori/docsify-simple-dark-mode@latest/src/switchLightDarkMode.js"></script>
+  <!-- 上下章节跳转 -->
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- 返回顶部 -->
+  <script src="https://cdn.jsdelivr.net/gh/Sumsung524/docsify-backTop/dist/docsify-backTop.min.js"></script>
 </body>
 </html>
