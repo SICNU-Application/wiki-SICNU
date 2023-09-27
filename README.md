@@ -42,6 +42,7 @@
 - 【腾讯文档】飞跃手册意见征集表 -i（待创建
 - QQ群 （待创建
 ## 友情链接
+
 [南方科技大学飞跃手册](https://sustech-application.com/#/?id=%e5%8d%97%e6%96%b9%e7%a7%91%e6%8a%80%e5%a4%a7%e5%ad%a6%e9%a3%9e%e8%b7%83%e6%89%8b%e5%86%8c)
 
 [安徽大学飞跃手册](https://www.ahu.wiki/#/)
