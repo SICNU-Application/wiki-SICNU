@@ -18,3 +18,6 @@
 
 特别感谢[南京工业大学飞跃手册](https://github.com/yaoshun123/FLY_NJTech)
 <br>
+
+!> 移动端访问请点击`左下角菜单栏` <strong><font color="42B983"> ≡ </font> </strong>展开菜单，祝阅读愉快！
+<br>
