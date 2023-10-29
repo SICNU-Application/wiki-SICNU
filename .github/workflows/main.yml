@@ -19,4 +19,4 @@ jobs:
         REGION: ap-chengdu
       run: coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
     - name: Upload
-      run: coscmd upload -rfs --delete ./docs/ --ignore ".git/*"
+      run: coscmd upload -rfs --delete ./docs/ / --ignore ".git/*"
