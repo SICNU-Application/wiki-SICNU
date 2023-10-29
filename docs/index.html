@@ -130,7 +130,12 @@
 
 <!-- 不蒜子-访问量统计 -->
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
+<!-- 初始化不算子 -->
+  <script>
+    var busuanzi_value_site_uv_bias = 4046; // 总访问量
+    var busuanzi_value_site_pv_bias = 2408; // 访客数
+  document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("busuanzi_value_site_uv"),t=document.getElementById("busuanzi_value_site_pv"),n=new MutationObserver(e=>{for(let t of e)if("childList"===t.type){n.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML)+busuanzi_value_site_uv_bias;break}}),i=new MutationObserver(e=>{for(let t of e)if("childList"===t.type){i.disconnect(),t.target.innerHTML=parseInt(t.target.innerHTML)+busuanzi_value_site_pv_bias;break}}),r={childList:!0};n.observe(e,r),i.observe(t,r)});
+  </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     <!--全文搜索,直接用官方提供的无法生效-->
