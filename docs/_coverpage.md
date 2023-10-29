@@ -1,4 +1,3 @@
-
 <!-- 图片 -->
 <p align="center">
   <a href="https://sicnu.wiki">
@@ -35,3 +34,4 @@
 <!-- 添加背景图片 -->
 <!-- ![sicnu风景.jpeg](src/sicnu风景.webp) -->
 ![sicnu风景](https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/sicnu%E9%A3%8E%E6%99%AF.webp)
+
