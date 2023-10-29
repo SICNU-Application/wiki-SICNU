@@ -1,0 +1,22 @@
+name: Upload to COS
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install coscmd
+      run: sudo pip install coscmd
+    - name: Configure coscmd
+      env:
+        SECRET_ID: ${{ secrets.SecretId }}
+        SECRET_KEY: ${{ secrets.SecretKey }}
+        BUCKET: sicnu-docs-1302714559
+        REGION: ap-chengdu
+      run: coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
+    - name: Upload
+      run: coscmd upload -rfs --delete ./ / --ignore "./.git/*"
