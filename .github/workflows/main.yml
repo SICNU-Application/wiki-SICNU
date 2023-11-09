@@ -15,7 +15,7 @@ jobs:
       env:
         SECRET_ID: ${{ secrets.SecretId }}
         SECRET_KEY: ${{ secrets.SecretKey }}
-        BUCKET: sicnu-docs-1302714559
+        BUCKET: sicnu-docs-1318005116
         REGION: ap-chengdu
       run: coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
     - name: Upload
