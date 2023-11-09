@@ -1,4 +1,4 @@
-## 飞跃手册-川师大[Sicnu.wiki](https://www.sicnu.wiki)
+## 飞跃手册-川师大[Sicnuwiki](https://www.sicnuwiki.com)
  <br>移动端访问请点击`左下角菜单栏` <strong><font color="42B983"> ≡ </font> </strong>展开菜单，祝阅读愉快！
 
 ## 近期更新
@@ -10,8 +10,9 @@
 ## 公告
 
 - **飞跃手册 - 川师大**于2022年10月4日开始编制，本项目的初衷是为川师学子提供一个经验交流，分享的平台，希望能够帮助到更多的人，诚挚的邀请大家的加入！
-- 域名已注册为：[www.sicnu.wiki](https://sicnu.wiki)   
    >sicnu为校名的简写，后缀wiki代表维基百科的意思，请牢记哦！
+- 域名已更新为：[www.sicnuwiki.com](www.sicnuwiki.com)
+- ~~域名已注册为：[www.sicnu.wiki](https://sicnu.wiki)~~ (2023.11.22日停用)
 
 - 如需联系某篇帖子的作者，请邮件联系我们。
   
@@ -61,6 +62,8 @@
 
 <br>
 
+## 支持与备案信息
+[蜀ICP备2023031867号](https://beian.miit.gov.cn/#/Integrated/index)<br>
 <!-- <span id="sitetime"></span><br> -->
 <span>Copyright©2022-present.</span>
 <span>[Powered by docsify.](https://github.com/docsifyjs/docsify)</span>
