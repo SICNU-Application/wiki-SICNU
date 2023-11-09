@@ -11,7 +11,7 @@
 
 - **飞跃手册 - 川师大**于2022年10月4日开始编制，本项目的初衷是为川师学子提供一个经验交流，分享的平台，希望能够帮助到更多的人，诚挚的邀请大家的加入！
    >sicnu为校名的简写，后缀wiki代表维基百科的意思，请牢记哦！
-- 域名已更新为：[www.sicnuwiki.com](www.sicnuwiki.com)
+- 域名已更新为：[www.sicnuwiki.com](https://www.sicnuwiki.com)
 - ~~域名已注册为：[www.sicnu.wiki](https://sicnu.wiki)~~ (2023.11.22日停用)
 
 - 如需联系某篇帖子的作者，请邮件联系我们。
