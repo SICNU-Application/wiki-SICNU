@@ -3,3 +3,4 @@
 .idea/target/
 .pytest_cache
 .gitattributes
+.github
