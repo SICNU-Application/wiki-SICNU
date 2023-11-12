@@ -20,4 +20,4 @@ jobs:
       run: coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
     - name: Upload
     # 同步上传文件，忽略 .git文件，以及Img文件中的内容，Img文件可通过Picgo直接上传至腾讯云COS图床
-      run: coscmd upload -rfs --delete ./docs/ / --ignore .git/*,docs/Img/*
+      run: coscmd upload -rf -s --delete ./docs/ / --ignore docs/Img/*,.git/*
