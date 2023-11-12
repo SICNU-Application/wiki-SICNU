@@ -2,7 +2,7 @@
 <p align="center">
   <a href="https://www.sicnuwiki.com">
     <!-- <img alt="docsify" src="src/sicnu校徽.webp" height="130"> -->
-    <img alt="docsify" src="https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/sicnu%E6%A0%A1%E5%BE%BD.webp" height="130">
+    <img alt="docsify" src="https://www.sicnuwiki.com/Img/sicnu%E6%A0%A1%E5%BE%BD.webp" height="130">
     
   </a>
 </p>
@@ -33,5 +33,5 @@
 <!-- [点击进入](./README.md) --> 
 <!-- 添加背景图片 -->
 <!-- ![sicnu风景.jpeg](src/sicnu风景.webp) -->
-![sicnu风景](https://sicnu-wiki-1302714559.cos.ap-nanjing.myqcloud.com/Img/sicnu%E9%A3%8E%E6%99%AF.webp)
+![sicnu风景](https://www.sicnuwiki.com/Img/sicnu%E9%A3%8E%E6%99%AF.webp)
 
