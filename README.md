@@ -1,4 +1,4 @@
-![image](https://github.com/Chunmei2001/wiki-SICNU/assets/117700880/90da0839-8e58-4605-b984-079ee0d69960)## 飞跃手册-川师大[Sicnuwiki](https://www.sicnuwiki.com)
+## 飞跃手册-川师大[Sicnuwiki](https://www.sicnuwiki.com)
  <br>移动端访问请点击`左下角菜单栏` <strong><font color="42B983"> ≡ </font> </strong>展开菜单，祝阅读愉快！
 
 ## 近期更新
