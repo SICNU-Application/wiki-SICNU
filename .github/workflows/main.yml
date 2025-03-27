@@ -10,7 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install coscmd
-      run: sudo pip install coscmd
+      # run: sudo pip install coscmd
+      # https://github.com/tencentyun/coscmd/issues/311
+      run: sudo pip install https://github.com/tencentyun/coscmd/archive/refs/heads/master.zip
     - name: Configure coscmd
       env:
         SECRET_ID: ${{ secrets.SecretId }}
