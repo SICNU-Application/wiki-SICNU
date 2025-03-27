@@ -30,6 +30,49 @@
     }
   </style>
 
+  <style>
+   /* 使菜单按钮更加醒目 */
+   .sidebar-toggle {
+    background-color: #42B983 !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    padding: 10px !important;
+    opacity: 0.8 !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .sidebar-toggle:hover {
+    opacity: 1 !important;
+    transform: scale(1.1) !important;
+  }
+
+  .sidebar-toggle span {
+    background-color: white !important;
+    height: 2px !important;
+    width: 16px !important;
+    margin: 4px auto !important;
+  }
+  
+  /* 可选：使侧边栏本身更醒目 */
+  .sidebar {
+    border-right: 2px solid #42B983 !important;
+  }
+  
+  /* 针对移动设备的响应式调整 */
+  @media screen and (max-width: 768px) {
+    .sidebar-toggle {
+      width: 32px !important;
+      height: 32px !important;
+      padding: 8px !important;
+    }
+    
+    .sidebar-toggle span {
+      width: 14px !important;
+      margin: 3px auto !important;
+    }
+  }
+  </style>
   
 </head>
 <body>
