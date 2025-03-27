@@ -4,3 +4,4 @@
 .pytest_cache
 .gitattributes
 .github
+**/.DS_Store
