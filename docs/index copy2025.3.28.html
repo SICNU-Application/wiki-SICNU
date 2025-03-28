@@ -137,6 +137,44 @@
     };
   </script>
 
+<!-- 评论插件 -->
+<link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+<script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <!-- 新增md5.min.js -->
+  <script src="./src/_assert/md5.min.js"></script>
+  <script>
+    category_name = location.hash.match(/#(.*?)([?]|$)/)
+    if(category_name != null){
+      category_name = location.hash.match(/#(.*?)([?]|$)/)[1]
+    }
+    // 限制 50 个字符
+    if (category_name != null) {
+      category_name = decodeURI(category_name.substring(1, category_name.length))
+        if (category_name.length >= 50) {
+          category_name = category_name.substring(category_name.length - 50, category_name.length)
+        }
+      } else {
+        category_name = 'home page'
+      }
+    const gitalk = new Gitalk({
+      clientID: 'f5c6494823927f00d9db',
+      clientSecret: '6c3556208ed01592ec10f0f5056408200b9d0f88',
+      repo: 'wiki-SICNU-Comment',
+      owner: 'Ronchy2000',
+      admin: ['Ronchy2000'],
+      distractionFreeMode: false,
+      title: category_name,
+      id:category_name,
+    })
+    // 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
+    // window.onhashchange = function(event){
+    //     if(event.newURL.split('?')[0] !== event.oldURL.split('?')[0]){
+    //       location.reload()
+    //     }
+    // }
+  </script>
+
 <!-- 不蒜子-访问量统计 -->
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <!-- 不蒜子初始化 -->
