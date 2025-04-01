@@ -84,3 +84,15 @@ Generate an image of contributors to keep your README.md in sync.
 <!-- <a href="https://github.com/orgs/SICNU-Application/people">
   <br><img src="https://contributors-img.web.app/image?repo=SUSTech-Application/SUSTechapplication" />
 </a> -->
+
+
+
+## Star History
+
+<a href="https://www.star-history.com/#SICNU-Application/wiki-SICNU&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=SICNU-Application/wiki-SICNU&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=SICNU-Application/wiki-SICNU&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=SICNU-Application/wiki-SICNU&type=Date" />
+ </picture>
+</a>
