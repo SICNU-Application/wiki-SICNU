@@ -147,7 +147,7 @@
           // 调用 twikoo 评论，正则 path，刷新当前评论
           hook.doneEach(function () {
             twikoo.init({
-                envId: 'https://your-twikoo.vercel.app', // 替换为您的Vercel部署URL
+                envId: 'https://twikoo-vert-delta.vercel.app', // 替换为您的Vercel部署URL
                 el: '#tcomment',
                 path: location.pathname+location.hash.replace(/\?.*/,''),
                 onCommentLoaded: function () {
