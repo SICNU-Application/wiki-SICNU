@@ -147,7 +147,7 @@
           // 调用 twikoo 评论，正则 path，刷新当前评论
           hook.doneEach(function () {
             twikoo.init({
-                envId: 'https://twikoo-eo-w2aubykn.edgeone.cool', // 替换为您的Vercel部署URL
+                envId: 'https://twikoo-vert-delta.vercel.app', // 替换为您的Vercel部署URL
                 el: '#tcomment',
                 path: location.pathname+location.hash.replace(/\?.*/,''),
                 onCommentLoaded: function () {
@@ -190,7 +190,7 @@
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <!-- 返回顶部 -->
   <script src="https://cdn.jsdelivr.net/gh/Sumsung524/docsify-backTop/dist/docsify-backTop.min.js"></script>
-  <!-- Twikoo评论系统 更新为latest-->
-  <script src="https://cdn.staticfile.org/twikoo/latest/twikoo.all.min.js"></script>
+  <!-- Twikoo评论系统 -->
+  <script src="https://cdn.staticfile.org/twikoo/1.6.5/twikoo.all.min.js"></script>
 </body>
 </html>
