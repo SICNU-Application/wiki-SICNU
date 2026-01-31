@@ -72,6 +72,83 @@
       margin: 3px auto !important;
     }
   }
+
+  /* Twikoo 评论框布局修复 */
+  #tcomment {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 30px 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* 确保 Twikoo 容器不超出内容区域 */
+  .content #tcomment {
+    clear: both !important;
+  }
+
+  /* Twikoo 内部元素宽度限制 */
+  #tcomment * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Twikoo 输入框和按钮布局 */
+  #tcomment .tk-submit {
+    margin-right: 0 !important;
+  }
+
+  /* 评论列表样式优化 */
+  #tcomment .tk-comments {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Docsify 内容区域宽度控制 */
+  .markdown-section {
+    max-width: 100% !important;
+    padding: 30px 15px 40px !important;
+  }
+
+  /* 确保内容容器宽度正常 */
+  .content {
+    overflow-x: hidden !important;
+  }
+
+  /* Twikoo 表单行布局 */
+  #tcomment .tk-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  #tcomment .tk-col {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  /* Twikoo 输入框 */
+  #tcomment input,
+  #tcomment textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 移动端评论框适配 */
+  @media screen and (max-width: 768px) {
+    #tcomment {
+      padding: 0 10px !important;
+    }
+    
+    #tcomment .tk-row {
+      flex-direction: column !important;
+    }
+
+    #tcomment .tk-col {
+      width: 100% !important;
+    }
+  }
   </style>
   
 </head>
@@ -147,7 +224,7 @@
           // 调用 twikoo 评论，正则 path，刷新当前评论
           hook.doneEach(function () {
             twikoo.init({
-                envId: 'https://twikoo-vert-delta.vercel.app', // 使用Vercel部署URL（EdgeOne暂时有认证问题）
+                envId: 'https://twikoo-eo-w2aubykn.edgeone.cool', // 使用EdgeOne
                 el: '#tcomment',
                 // path: location.pathname+location.hash.replace(/\?.*/,''),
                 onCommentLoaded: function () {
