@@ -15,22 +15,7 @@ var install = function (hook, vm) {
     CONFIG.align = opts.align && typeof opts.align === 'string' ? opts.align : CONFIG.align;
 
     hook.beforeEach(function(html) {
-        return (html + '\n----\n' + '<div align= ' + CONFIG.align + '><span id="last-modified">' + CONFIG.preString + '加载中...</span></div>');
-    });
-
-    hook.doneEach(function() {
-        console.log('docsify-last-modified: doneEach hook triggered');
         var time = '{docsify-updated}';
-        var element = document.getElementById('last-modified');
-        
-        if (!element) {
-            console.error('docsify-last-modified: element #last-modified not found');
-            return;
-        }
-
-        console.log('docsify-last-modified: repo =', CONFIG.repo);
-        console.log('docsify-last-modified: file =', vm.route.file);
-
         if (CONFIG.repo !== '') {
             var date_url = 'https://api.github.com/repos/' + CONFIG.repo + '/commits?per_page=1';
             
@@ -40,33 +25,18 @@ var install = function (hook, vm) {
                 date_url = date_url + '&path=' + filePath;
             }
             
-            console.log('docsify-last-modified: fetching from', date_url);
-            
-            fetch(date_url)
-                .then(function(response) {
-                    if (!response.ok) {
-                        throw new Error('GitHub API request failed: ' + response.status);
-                    }
-                    return response.json();
-                })
-                .then(function(commits) {
-                    if (commits && commits.length > 0) {
-                        time = tinydate(CONFIG.dateFormat)(new Date(commits[0]['commit']['committer']['date']));
-                        console.log('docsify-last-modified: formatted time =', time);
-                    } else {
-                        time = '未知';
-                        console.warn('docsify-last-modified: no commits found');
-                    }
-                    element.textContent = CONFIG.preString + time;
-                })
-                .catch(function(error) {
-                    console.error('docsify-last-modified error:', error);
-                    element.textContent = CONFIG.preString + '获取失败';
-                });
+            fetch(date_url).then((response) => {
+                return response.json();
+            }).then((commits) => {
+                if (commits.length > 0) {
+                    time = tinydate(CONFIG.dateFormat)(new Date(commits[0]['commit']['committer']['date']));
+                }
+                document.getElementById('last-modified').textContent = CONFIG.preString + time;
+            });
         } else {
-            console.warn('docsify-last-modified: CONFIG.repo is empty');
-            element.textContent = CONFIG.preString + time;
+            document.getElementById('last-modified').textContent = CONFIG.preString + time;
         }
+        return (html + '\n----\n' + '<div align= ' + CONFIG.align + '><span id="last-modified"></span></div>');
     });
 };
 
