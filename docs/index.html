@@ -228,10 +228,10 @@
           // 调用 twikoo 评论，正则 path，刷新当前评论
           hook.doneEach(function () {
             twikoo.init({
-                envId: 'https://twikoo-eo-w2aubykn.edgeone.cool',
+                envId: 'https://twikooeo.sicnuwiki.com',
                 el: '#tcomment',
                 lang: 'zh-CN',
-                //path: location.pathname+location.hash.replace(/\?.*/,''),
+                path: location.pathname+location.hash.replace(/\?.*/,''),
                 onCommentLoaded: function () {
                   window.ViewImage && ViewImage.init('.tk-content img:not(.avatar,.tk-avatar-img,.tk-owo-emotion),.ebook img,a.zoom');
                 }
