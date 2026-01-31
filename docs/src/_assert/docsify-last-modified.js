@@ -20,7 +20,9 @@ var install = function (hook, vm) {
             var date_url = 'https://api.github.com/repos/' + CONFIG.repo + '/commits?per_page=1';
             
             if (CONFIG.basePath !== '') {
-                date_url = date_url + '&path=' + CONFIG.basePath + vm.route.file;
+                // 对路径进行 URL 编码以支持中文文件名
+                var filePath = encodeURI(CONFIG.basePath + vm.route.file);
+                date_url = date_url + '&path=' + filePath;
             }
             fetch(date_url).then((response) => {
               return response.json();
