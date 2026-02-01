@@ -225,24 +225,52 @@
             n.id = "tcomment";
           a.appendTo(a.find(".content"), n);
           })
+          
+          // twikoo 初始化控制变量
+          var twikooTimer = null;
+          var lastPath = null;
+          
           // 调用 twikoo 评论，正则 path，刷新当前评论
           hook.doneEach(function () {
-            twikoo.init({
-                envId: 'https://twikooeo.sicnuwiki.com',
-                el: '#tcomment',
-                lang: 'zh-CN',
-                // path: location.pathname+location.hash.replace(/\?.*/,''),
-                onCommentLoaded: function () {
-                  window.ViewImage && ViewImage.init('.tk-content img:not(.avatar,.tk-avatar-img,.tk-owo-emotion),.ebook img,a.zoom');
-                }
-            }).then(function () {
-              console.log('Twikoo 加载完成');
-              setTimeout(function() {
-                // 通过点击刷新按钮，获取当前页评论
-                let tk_icon = document.getElementsByClassName("tk-icon")[0];
-                tk_icon ? tk_icon.click() : undefined;
-              },700)
-            });
+            // 获取当前 docsify 页面路径作为评论区分标识
+            var currentPath = location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/';
+            
+            // 如果路径相同，不重复初始化
+            if (lastPath === currentPath) {
+              return;
+            }
+            lastPath = currentPath;
+            
+            // 取消之前的延迟初始化（防止快速切换页面导致叠加）
+            if (twikooTimer) {
+              clearTimeout(twikooTimer);
+              twikooTimer = null;
+            }
+            
+            // 先清空评论容器，避免叠加
+            var tcomment = document.getElementById('tcomment');
+            if (tcomment) {
+              tcomment.innerHTML = '';
+            }
+            
+            // 延迟加载 twikoo，避免影响页面滑动性能
+            twikooTimer = setTimeout(function() {
+              // 再次检查路径是否仍然匹配（用户可能已切换）
+              var nowPath = location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/';
+              if (nowPath !== currentPath) {
+                return;
+              }
+              
+              twikoo.init({
+                  envId: 'https://twikooeo.sicnuwiki.com',
+                  el: '#tcomment',
+                  lang: 'zh-CN',
+                  path: currentPath,
+                  onCommentLoaded: function () {
+                    window.ViewImage && ViewImage.init('.tk-content img:not(.avatar,.tk-avatar-img,.tk-owo-emotion),.ebook img,a.zoom');
+                  }
+              });
+            }, 300);
           })
         }
       ]
