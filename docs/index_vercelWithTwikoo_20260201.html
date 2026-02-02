@@ -146,7 +146,6 @@
             window.ViewImage && ViewImage.init('.ebook img,a.zoom');
           });
 
-          // --- Twikoo DOM 管理 ---
           function removeAllTcomment() {
             var nodes = document.querySelectorAll('#tcomment');
             for (var i = 0; i < nodes.length; i++) {
@@ -178,77 +177,25 @@
             return p;
           }
 
-          // 控制变量
-          var twikooTimer = null;
-          var twikooObserver = null;
-          var twikooLoading = false;
-          var twikooToken = 0;
-
-          function destroyTwikoo() {
-            if (twikooTimer) { clearTimeout(twikooTimer); twikooTimer = null; }
-            if (twikooObserver) { twikooObserver.disconnect(); twikooObserver = null; }
-            twikooLoading = false;
-            removeAllTcomment();
-          }
-
-          function loadTwikoo(path, token) {
-            if (token !== twikooToken) return;
-            if (twikooLoading) return;
-            var tcomment = document.getElementById('tcomment');
+          // 简化版：每次 doneEach 直接初始化一次
+          hook.doneEach(function () {
+            var tcomment = ensureTcomment();
+            var currentPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
             if (!tcomment) return;
-            twikooLoading = true;
             tcomment.innerHTML = '';
             twikoo.init({
                 envId: 'https://twikoo-vert-delta.vercel.app',
                 el: '#tcomment',
-                lang: 'zh-CN',
-                path: path,
+                path: currentPath,
                 onCommentLoaded: function () {
                   window.ViewImage && ViewImage.init('.tk-content img:not(.avatar,.tk-avatar-img,.tk-owo-emotion),.ebook img,a.zoom');
                 }
             }).then(function () {
-              if (token !== twikooToken) return;
-              twikooLoading = false;
-            }).catch(function () {
-              twikooLoading = false;
+              setTimeout(function(){
+                var tk_icon = document.getElementsByClassName("tk-icon")[0];
+                tk_icon ? tk_icon.click() : undefined;
+              }, 700);
             });
-          }
-
-          function observeAndLoad(path, token) {
-            if (twikooObserver) { twikooObserver.disconnect(); twikooObserver = null; }
-            if (twikooTimer) { clearTimeout(twikooTimer); twikooTimer = null; }
-            var tcomment = document.getElementById('tcomment');
-            if (!tcomment) return;
-            if (!('IntersectionObserver' in window)) {
-              twikooTimer = setTimeout(function () { loadTwikoo(path, token); }, 0);
-              return;
-            }
-            twikooObserver = new IntersectionObserver(function (entries) {
-              if (!entries || !entries.length) return;
-              if (entries[0].isIntersecting) {
-                if (twikooObserver) { twikooObserver.disconnect(); twikooObserver = null; }
-                twikooTimer = setTimeout(function () { loadTwikoo(path, token); }, 0);
-              }
-            }, { rootMargin: '200px 0px' });
-            twikooObserver.observe(tcomment);
-          }
-
-          hook.beforeEach(function (content) {
-            destroyTwikoo();
-            return content;
-          });
-
-          hook.doneEach(function () {
-            destroyTwikoo();
-            var currentPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
-            twikooToken += 1;
-            var currentToken = twikooToken;
-            twikooLoading = false;
-            setTimeout(function () {
-              if (currentToken !== twikooToken) return;
-              var tcomment = ensureTcomment();
-              if (tcomment) observeAndLoad(currentPath, currentToken);
-            }, 50);
           })
         }
       ]
