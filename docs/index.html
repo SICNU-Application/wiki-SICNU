@@ -261,6 +261,22 @@
             });
           }
 
+          // 等待 twikoo 加载完成的函数
+          function waitForTwikoo(callback, maxWait) {
+            var waited = 0;
+            var interval = 100;
+            var check = setInterval(function() {
+              if (typeof twikoo !== 'undefined') {
+                clearInterval(check);
+                callback();
+              } else if (waited >= maxWait) {
+                clearInterval(check);
+                console.warn('[Twikoo] ⚠️ 等待超时，评论功能暂不可用');
+              }
+              waited += interval;
+            }, interval);
+          }
+
           // 调用 twikoo 评论（简化版）
           hook.doneEach(function () {
             clearTwikooUI();
@@ -268,20 +284,24 @@
             var currentPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
             if (!tcomment) return;
             tcomment.innerHTML = '';
-            twikoo.init({
-                envId: 'https://twikooeo.sicnuwiki.com',
-                el: '#tcomment',
-                lang: 'zh-CN',
-                path: currentPath,
-                onCommentLoaded: function () {
-                  window.ViewImage && ViewImage.init('.tk-content img:not(.avatar,.tk-avatar-img,.tk-owo-emotion),.ebook img,a.zoom');
-                }
-            }).then(function () {
-              setTimeout(function () {
-                var tkIcon = document.getElementsByClassName("tk-icon")[0];
-                if (tkIcon) tkIcon.click();
-              }, 300);
-            });
+            
+            // 等待 twikoo 加载完成后再初始化
+            waitForTwikoo(function() {
+              twikoo.init({
+                  envId: 'https://twikooeo.sicnuwiki.com',
+                  el: '#tcomment',
+                  lang: 'zh-CN',
+                  path: currentPath,
+                  onCommentLoaded: function () {
+                    window.ViewImage && ViewImage.init('.tk-content img:not(.avatar,.tk-avatar-img,.tk-owo-emotion),.ebook img,a.zoom');
+                  }
+              }).then(function () {
+                setTimeout(function () {
+                  var tkIcon = document.getElementsByClassName("tk-icon")[0];
+                  if (tkIcon) tkIcon.click();
+                }, 300);
+              });
+            }, 10000); // 最多等待 10 秒
           })
         }
       ]
@@ -394,7 +414,70 @@
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <!-- 返回顶部 -->
   <script src="https://cdn.jsdelivr.net/gh/Sumsung524/docsify-backTop/dist/docsify-backTop.min.js"></script>
-  <!-- Twikoo评论系统 -->
-  <script src="https://cdn.staticfile.org/twikoo/1.6.44/twikoo.all.min.js"></script>
+  <!-- Twikoo评论系统（多源备份） -->
+  <script>
+    (function() {
+      var twikooSources = [
+        'https://cdn.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js',
+        'https://unpkg.com/twikoo@1.6.44/dist/twikoo.all.min.js',
+        'https://cdn.staticfile.org/twikoo/1.6.44/twikoo.all.min.js'
+      ];
+      var currentIndex = 0;
+      var timeout = 5000;
+      var loaded = false;
+
+      function loadTwikooScript(url) {
+        return new Promise(function(resolve, reject) {
+          if (loaded) return resolve();
+          
+          var script = document.createElement('script');
+          script.src = url;
+          
+          var timer = setTimeout(function() {
+            script.onload = script.onerror = null;
+            if (script.parentNode) script.parentNode.removeChild(script);
+            reject(new Error('Timeout'));
+          }, timeout);
+          
+          script.onload = function() {
+            clearTimeout(timer);
+            if (typeof twikoo !== 'undefined') {
+              loaded = true;
+              console.log('[Twikoo] ✅ 加载成功：' + url);
+              resolve();
+            } else {
+              reject(new Error('twikoo undefined'));
+            }
+          };
+          
+          script.onerror = function() {
+            clearTimeout(timer);
+            if (script.parentNode) script.parentNode.removeChild(script);
+            reject(new Error('Load failed'));
+          };
+          
+          document.head.appendChild(script);
+        });
+      }
+
+      function tryNextTwikooSource() {
+        if (currentIndex >= twikooSources.length) {
+          console.error('[Twikoo] ❌ 所有 CDN 源都失败了');
+          return;
+        }
+        
+        var url = twikooSources[currentIndex];
+        console.log('[Twikoo] 尝试源 ' + (currentIndex + 1) + '/' + twikooSources.length + '：' + url);
+        
+        loadTwikooScript(url).catch(function(err) {
+          console.warn('[Twikoo] ❌ ' + url + ' - ' + err.message);
+          currentIndex++;
+          setTimeout(tryNextTwikooSource, 300);
+        });
+      }
+
+      tryNextTwikooSource();
+    })();
+  </script>
 </body>
 </html>
