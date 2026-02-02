@@ -226,22 +226,49 @@
             window.ViewImage && ViewImage.init('.ebook img,a.zoom');
           });
           function ensureTcomment() {
-            var tcomment = document.getElementById('tcomment');
-            if (tcomment) return tcomment;
+            // 先确保只有一个 tcomment 容器
+            removeAllTcomment();
             var a = Docsify.dom;
             var n = a.create("div");
             n.id = "tcomment";
-            a.appendTo(a.find(".content"), n);
+            var content = a.find(".content");
+            if (content) {
+              a.appendTo(content, n);
+            }
             return n;
           }
 
           function removeAllTcomment() {
+            // 移除所有 #tcomment 容器
             var nodes = document.querySelectorAll('#tcomment');
             for (var i = 0; i < nodes.length; i++) {
               if (nodes[i] && nodes[i].parentNode) {
                 nodes[i].parentNode.removeChild(nodes[i]);
               }
             }
+            // 同时移除 Twikoo 可能创建的弹窗/遮罩等全局元素
+            var tkModals = document.querySelectorAll('.tk-lightbox, .tk-action-icon__dialog, .tk-image-viewer');
+            for (var j = 0; j < tkModals.length; j++) {
+              if (tkModals[j] && tkModals[j].parentNode) {
+                tkModals[j].parentNode.removeChild(tkModals[j]);
+              }
+            }
+          }
+          
+          // 全局销毁函数，用于页面切换前彻底清理
+          function destroyTwikoo() {
+            // 停止所有定时器和观察者
+            if (twikooTimer) {
+              clearTimeout(twikooTimer);
+              twikooTimer = null;
+            }
+            if (twikooObserver) {
+              twikooObserver.disconnect();
+              twikooObserver = null;
+            }
+            twikooLoading = false;
+            // 彻底移除评论容器
+            removeAllTcomment();
           }
 
           function normalizeCommentPath(path) {
@@ -257,7 +284,13 @@
 
           // 动态插入 div#tcomment 的 dom 
           hook.mounted(function () {
-            ensureTcomment();
+            // 初始化时不创建，等 doneEach 再创建
+          })
+          
+          // 页面开始切换时（路由变化前）清理
+          hook.beforeEach(function(content) {
+            destroyTwikoo();
+            return content;
           })
           
           // twikoo 初始化控制变量
@@ -270,11 +303,14 @@
           function loadTwikoo(path, token) {
             if (token !== twikooToken) return;
             if (twikooLoading) return;
+            
+            // 检查是否已有评论容器
+            var tcomment = document.getElementById('tcomment');
+            if (!tcomment) return;
+            
             twikooLoading = true;
-            var tcomment = ensureTcomment();
-            if (tcomment) {
-              tcomment.innerHTML = '';
-            }
+            tcomment.innerHTML = '';
+            
             twikoo.init({
                 envId: 'https://twikooeo.sicnuwiki.com',
                 el: '#tcomment',
@@ -286,11 +322,6 @@
             }).then(function () {
               if (token !== twikooToken) return;
               twikooLoading = false;
-              // 可选：强制刷新一次，确保切换页面后评论更新
-              setTimeout(function () {
-                var tkIcon = document.getElementsByClassName("tk-icon")[0];
-                if (tkIcon) tkIcon.click();
-              }, 200);
             }).catch(function () {
               twikooLoading = false;
             });
@@ -306,7 +337,7 @@
               twikooTimer = null;
             }
 
-            var tcomment = ensureTcomment();
+            var tcomment = document.getElementById('tcomment');
             if (!tcomment) return;
 
             if (!('IntersectionObserver' in window)) {
@@ -334,27 +365,34 @@
           
           // 调用 twikoo 评论，正则 path，刷新当前评论
           hook.doneEach(function () {
+            // ★★★ 第一步：立即彻底销毁旧的 Twikoo 实例和容器 ★★★
+            destroyTwikoo();
+            
             // 获取当前 docsify 页面路径作为评论区分标识
             var currentPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
             
-            // 如果路径相同，不重复初始化
-            if (lastPath === currentPath) {
-              return;
-            }
+            // 更新路径记录
             lastPath = currentPath;
 
             // 切换页面时更新 token，避免旧请求回流渲染
             twikooToken += 1;
+            var currentToken = twikooToken;
             twikooLoading = false;
             
-            // 先清理旧容器，避免多个评论区叠加
-            removeAllTcomment();
-            var tcomment = ensureTcomment();
-            if (tcomment) {
-              tcomment.innerHTML = '';
-            }
-
-            observeAndLoad(currentPath, twikooToken);
+            // ★★★ 第二步：延迟创建新的评论容器，确保 DOM 已更新 ★★★
+            setTimeout(function() {
+              // 检查 token 是否仍然有效（防止快速切换页面时的竞态条件）
+              if (currentToken !== twikooToken) return;
+              
+              // 再次清理，确保没有残留
+              removeAllTcomment();
+              
+              // 创建新的评论容器
+              var tcomment = ensureTcomment();
+              if (tcomment) {
+                observeAndLoad(currentPath, currentToken);
+              }
+            }, 50);
           })
         }
       ]

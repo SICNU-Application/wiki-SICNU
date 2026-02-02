@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-02-03
+- twikoo：彻底修复 Docsify SPA 页面切换时多评论区叠加问题
+- twikoo：新增 `destroyTwikoo()` 统一销毁函数，管理定时器、观察者和 DOM 清理
+- twikoo：在 `hook.beforeEach` 路由切换前提前销毁旧评论实例
+- twikoo：`ensureTcomment()` 改为每次创建前先清理所有旧容器
+- twikoo：`doneEach` 中延迟 50ms 创建新容器，确保 DOM 更新完成
+- twikoo：移除 `loadTwikoo` 和 `observeAndLoad` 中多余的 `ensureTcomment()` 调用
+- twikoo：增强 token 机制防止快速切换页面时的竞态条件
+
 ## 2026-02-02
 - docsify-last-modified：新增“优先 HEAD、GitHub 备用”的策略与配置项（preferHead）
 - 同步要求：腾讯云 COS 需开启 CORS，并在 Expose Headers 中加入 `Last-Modified`
