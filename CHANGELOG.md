@@ -10,6 +10,7 @@
 - twikoo：切换页面时清理旧评论容器，避免多评论区叠加
 - twikoo：增加路由令牌，防止旧页面异步回流导致重复评论区
 - docsify：统一侧边栏到根目录，避免子目录 `_sidebar.md` 404
+- docsify：同步 vercel 版本的根目录侧边栏 alias 配置
 
 ### 腾讯云 COS CORS 设置要点
 - 路径：对象存储 COS → 存储桶 → 安全管理 → 跨域访问 CORS

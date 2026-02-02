@@ -107,6 +107,10 @@
       // ,repo: 'https://github.com/SICNU-Application/wiki-SICNU'
       // load DIY SideBar
       ,loadSidebar: true
+      // 统一使用根目录侧边栏，避免子目录 404
+      ,alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      }
       //设置侧边栏的目录名作为正文的标题
       ,autoHeader: true
       //侧边栏顶部标题
