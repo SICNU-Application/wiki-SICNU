@@ -231,6 +231,15 @@
             return n;
           }
 
+          function removeAllTcomment() {
+            var nodes = document.querySelectorAll('#tcomment');
+            for (var i = 0; i < nodes.length; i++) {
+              if (nodes[i] && nodes[i].parentNode) {
+                nodes[i].parentNode.removeChild(nodes[i]);
+              }
+            }
+          }
+
           function normalizeCommentPath(path) {
             var p = decodeURIComponent(path || '/').trim();
             if (!p || p === '#') return '/';
@@ -323,7 +332,8 @@
             }
             lastPath = currentPath;
             
-            // 先清空评论容器，避免叠加
+            // 先清理旧容器，避免多个评论区叠加
+            removeAllTcomment();
             var tcomment = ensureTcomment();
             if (tcomment) {
               tcomment.innerHTML = '';
