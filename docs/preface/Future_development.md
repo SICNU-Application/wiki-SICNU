@@ -14,7 +14,7 @@
 - [x] 2023.7.4-上线gitalk功能，使用md5解决字符超过50的Not found报错，新建 40+ issue库存放评论，评论库为wiki-SICNU-Comment
 - [x] 2022.11.21-添加gitalk评论留言功能,效果不好，暂时下线，求助~
 - [x] 已更新使用Netlify + Github，使用Netlify DNS，在线测试，效果优于Github Pages
-- [x] 2022.11.14-购买注册域名：[sicnu.wiki](sicnu.wiki)、添加DNS解析+HTTPS证书、添加搜索导航栏、添加字数统计
+- [x] 2022.11.14-购买注册域名：~~sicnu.wiki（已停用）~~、添加DNS解析+HTTPS证书、添加搜索导航栏、添加字数统计
 - [x] 2022.11.13-添加封面（若有更好的背景图片可以联系我们~ 感激不尽！
 - [x] 2022.11.4-测试通过git orgnization协作开发
 - [x] 2022.10.5-确定Github Pages+docsify作为建站方案

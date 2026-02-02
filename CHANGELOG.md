@@ -1,6 +1,7 @@
 # Changelog
 
 ## 2026-02-03
+- fix：修复 `sicnu.wiki` 错误链接导致搜索插件 404 报错
 - twikoo：修复 `cdn.staticfile.org` 不稳定导致评论系统加载失败的问题
 - twikoo：新增多源 CDN 备份机制（jsDelivr → unpkg → staticfile）
 - twikoo：指定版本号 1.6.44，避免使用 latest 导致的不稳定
