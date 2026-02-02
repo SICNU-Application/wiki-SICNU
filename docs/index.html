@@ -154,8 +154,6 @@
 </head>
 <body>
   <div id="app"></div>
-  <!-- 固定唯一的评论容器，避免重复创建 -->
-  <div id="tcomment"></div>
   <script>
     window.$docsify = {
     // 上下页跳转
@@ -239,9 +237,25 @@
             return p;
           }
 
+          function mountCommentContainer() {
+            // 移除旧的
+            var old = document.querySelectorAll('#tcomment');
+            old.forEach(function(el){ el.parentNode && el.parentNode.removeChild(el); });
+            // 新建并挂到当前内容区域
+            var a = Docsify.dom;
+            var n = a.create('div');
+            n.id = 'tcomment';
+            var content = a.find('.content');
+            if (content) {
+              a.appendTo(content, n);
+              return n;
+            }
+            return null;
+          }
+
           // 调用 twikoo 评论（简化版）
           hook.doneEach(function () {
-            var tcomment = document.getElementById('tcomment');
+            var tcomment = mountCommentContainer();
             var currentPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
             if (!tcomment) return;
             tcomment.innerHTML = '';
