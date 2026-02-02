@@ -170,8 +170,16 @@
             return null;
           }
 
+          function clearTwikooUI() {
+            var roots = document.querySelectorAll('.twikoo, .tk-comments, .tk-submit, .tk-action-icon__dialog, .tk-lightbox, .tk-image-viewer');
+            roots.forEach(function(el){
+              if (el && el.parentNode) el.parentNode.removeChild(el);
+            });
+          }
+
           // 简化版：每次 doneEach 直接初始化一次
           hook.doneEach(function () {
+            clearTwikooUI();
             var tcomment = mountCommentContainer();
             var currentPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
             if (!tcomment) return;
