@@ -5,6 +5,7 @@
 - 同步要求：腾讯云 COS 需开启 CORS，并在 Expose Headers 中加入 `Last-Modified`
 - 站点 Origin 建议：优先保留 `https://www.sicnuwiki.com`（可按需追加 `https://sicnuwiki.com`）
 - twikoo：修正 Docsify 页面 path 计算，确保不同页面评论区独立
+- twikoo：统一 README 相关路径（如 `/README` 与 `/./README`）以共享评论区
 
 ### 腾讯云 COS CORS 设置要点
 - 路径：对象存储 COS → 存储桶 → 安全管理 → 跨域访问 CORS

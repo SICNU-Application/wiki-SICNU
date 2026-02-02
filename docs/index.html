@@ -236,10 +236,17 @@
           // 调用 twikoo 评论，正则 path，刷新当前评论
           hook.doneEach(function () {
             // 获取当前 docsify 页面路径作为评论区分标识
-            var currentPath = decodeURIComponent(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
-            if (currentPath.charAt(0) !== '/') {
-              currentPath = '/' + currentPath;
+            function normalizeCommentPath(path) {
+              var p = decodeURIComponent(path || '/').trim();
+              if (!p || p === '#') return '/';
+              if (p.charAt(0) !== '/') p = '/' + p;
+              p = p.replace(/\/\.\//g, '/');
+              p = p.replace(/\/{2,}/g, '/');
+              // 统一 README 首页写法
+              if (p === '/README' || p === '/README.md' || p === '/./README') return '/README';
+              return p;
             }
+            var currentPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
             
             // 如果路径相同，不重复初始化
             if (lastPath === currentPath) {
@@ -262,10 +269,7 @@
             // 延迟加载 twikoo，避免影响页面滑动性能
             twikooTimer = setTimeout(function() {
               // 再次检查路径是否仍然匹配（用户可能已切换）
-              var nowPath = decodeURIComponent(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
-              if (nowPath.charAt(0) !== '/') {
-                nowPath = '/' + nowPath;
-              }
+              var nowPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
               if (nowPath !== currentPath) {
                 return;
               }
