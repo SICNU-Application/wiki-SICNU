@@ -77,6 +77,8 @@
 </head>
 <body>
   <div id="app"></div>
+  <!-- 固定唯一的评论容器，避免重复创建 -->
+  <div id="tcomment"></div>
   <script>
     window.$docsify = {
     // 上下页跳转
@@ -146,27 +148,6 @@
             window.ViewImage && ViewImage.init('.ebook img,a.zoom');
           });
 
-          function removeAllTcomment() {
-            var nodes = document.querySelectorAll('#tcomment');
-            for (var i = 0; i < nodes.length; i++) {
-              if (nodes[i] && nodes[i].parentNode) nodes[i].parentNode.removeChild(nodes[i]);
-            }
-            var tkModals = document.querySelectorAll('.tk-lightbox, .tk-action-icon__dialog, .tk-image-viewer');
-            for (var j = 0; j < tkModals.length; j++) {
-              if (tkModals[j] && tkModals[j].parentNode) tkModals[j].parentNode.removeChild(tkModals[j]);
-            }
-          }
-
-          function ensureTcomment() {
-            removeAllTcomment();
-            var a = Docsify.dom;
-            var n = a.create("div");
-            n.id = "tcomment";
-            var content = a.find(".content");
-            if (content) a.appendTo(content, n);
-            return n;
-          }
-
           function normalizeCommentPath(path) {
             var p = decodeURIComponent(path || '/').trim();
             if (!p || p === '#') return '/';
@@ -179,7 +160,7 @@
 
           // 简化版：每次 doneEach 直接初始化一次
           hook.doneEach(function () {
-            var tcomment = ensureTcomment();
+            var tcomment = document.getElementById('tcomment');
             var currentPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
             if (!tcomment) return;
             tcomment.innerHTML = '';
