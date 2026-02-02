@@ -21,6 +21,7 @@
 - docsify：统一侧边栏到根目录，避免子目录 `_sidebar.md` 404
 - docsify：同步 vercel 版本的根目录侧边栏 alias 配置
 - twikoo：容器改为随页面内容动态挂载（doneEach 先移除旧容器再插入到 `.content`），保持路径更新且仅保留一个评论框（主站与 vercel 同步）
+- twikoo：额外清理 `.twikoo` 相关 DOM，防止切页后评论框叠加
 
 ### 腾讯云 COS CORS 设置要点
 - 路径：对象存储 COS → 存储桶 → 安全管理 → 跨域访问 CORS

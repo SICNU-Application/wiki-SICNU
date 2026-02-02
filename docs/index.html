@@ -253,8 +253,17 @@
             return null;
           }
 
+          function clearTwikooUI() {
+            // 清理 twikoo 渲染的所有根节点和弹窗，避免叠加
+            var roots = document.querySelectorAll('.twikoo, .tk-comments, .tk-submit, .tk-action-icon__dialog, .tk-lightbox, .tk-image-viewer');
+            roots.forEach(function(el){
+              if (el && el.parentNode) el.parentNode.removeChild(el);
+            });
+          }
+
           // 调用 twikoo 评论（简化版）
           hook.doneEach(function () {
+            clearTwikooUI();
             var tcomment = mountCommentContainer();
             var currentPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
             if (!tcomment) return;
