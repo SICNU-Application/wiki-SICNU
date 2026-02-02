@@ -1,12 +1,12 @@
 # Changelog
 
 ## 2026-02-03
+- twikoo：修复 `cdn.staticfile.org` 不稳定导致评论系统加载失败的问题
+- twikoo：新增多源 CDN 备份机制（jsDelivr → unpkg → staticfile）
+- twikoo：指定版本号 1.6.44，避免使用 latest 导致的不稳定
+- twikoo：新增 `waitForTwikoo()` 函数，等待脚本加载完成后再初始化
+- twikoo：最多等待 10 秒，超时后显示友好提示
 - 不蒜子：改进访问量统计加载机制，新增多源备份策略
-- 不蒜子：支持官方源、饿了么 CDN、jsDelivr CDN 三源自动切换
-- 不蒜子：单源 4 秒超时后自动切换下一源，提升加载成功率
-- 不蒜子：所有源失败后显示友好提示，避免页面空白
-- 不蒜子：添加控制台日志，方便调试加载状态
-- twikoo：彻底修复 Docsify SPA 页面切换时多评论区叠加问题
 - twikoo：新增 `destroyTwikoo()` 统一销毁函数，管理定时器、观察者和 DOM 清理
 - twikoo：在 `hook.beforeEach` 路由切换前提前销毁旧评论实例
 - twikoo：`ensureTcomment()` 改为每次创建前先清理所有旧容器
