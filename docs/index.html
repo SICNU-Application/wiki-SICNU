@@ -261,10 +261,16 @@
           var twikooObserver = null;
           var twikooLoading = false;
           var lastPath = null;
+          var twikooToken = 0;
 
-          function loadTwikoo(path) {
+          function loadTwikoo(path, token) {
+            if (token !== twikooToken) return;
             if (twikooLoading) return;
             twikooLoading = true;
+            var tcomment = ensureTcomment();
+            if (tcomment) {
+              tcomment.innerHTML = '';
+            }
             twikoo.init({
                 envId: 'https://twikooeo.sicnuwiki.com',
                 el: '#tcomment',
@@ -274,6 +280,7 @@
                   window.ViewImage && ViewImage.init('.tk-content img:not(.avatar,.tk-avatar-img,.tk-owo-emotion),.ebook img,a.zoom');
                 }
             }).then(function () {
+              if (token !== twikooToken) return;
               twikooLoading = false;
               // 可选：强制刷新一次，确保切换页面后评论更新
               setTimeout(function () {
@@ -285,7 +292,7 @@
             });
           }
 
-          function observeAndLoad(path) {
+          function observeAndLoad(path, token) {
             if (twikooObserver) {
               twikooObserver.disconnect();
               twikooObserver = null;
@@ -300,7 +307,7 @@
 
             if (!('IntersectionObserver' in window)) {
               twikooTimer = setTimeout(function () {
-                loadTwikoo(path);
+                loadTwikoo(path, token);
               }, 0);
               return;
             }
@@ -313,7 +320,7 @@
                   twikooObserver = null;
                 }
                 twikooTimer = setTimeout(function () {
-                  loadTwikoo(path);
+                  loadTwikoo(path, token);
                 }, 0);
               }
             }, { rootMargin: '200px 0px' });
@@ -331,6 +338,10 @@
               return;
             }
             lastPath = currentPath;
+
+            // 切换页面时更新 token，避免旧请求回流渲染
+            twikooToken += 1;
+            twikooLoading = false;
             
             // 先清理旧容器，避免多个评论区叠加
             removeAllTcomment();
@@ -339,7 +350,7 @@
               tcomment.innerHTML = '';
             }
 
-            observeAndLoad(currentPath);
+            observeAndLoad(currentPath, twikooToken);
           })
         }
       ]
