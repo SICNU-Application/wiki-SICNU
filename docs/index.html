@@ -205,7 +205,10 @@
       }
       // 添加最后更新日期功能。https://github.com/rxmapple/docsify-last-modified
       ,lastModified:{
-        repo:'SICNU-Application/wiki-SICNU'
+        // 默认：优先同源 HEAD(腾讯 COS/OSS)，GitHub 作为备用
+        // 想“优先 GitHub API”就设为 false
+        preferHead: true
+        ,repo:'SICNU-Application/wiki-SICNU'
         ,basePath: 'docs/'
         ,preString: "最后更新: "
         ,dateFormat: "{YYYY} 年 {MM} 月 {DD} 日"
