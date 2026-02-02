@@ -221,31 +221,100 @@
           hook.afterEach(function(html) {
             window.ViewImage && ViewImage.init('.ebook img,a.zoom');
           });
-          // 动态插入 div#tcomment 的 dom 
-          hook.mounted(function () {
+          function ensureTcomment() {
+            var tcomment = document.getElementById('tcomment');
+            if (tcomment) return tcomment;
             var a = Docsify.dom;
             var n = a.create("div");
             n.id = "tcomment";
-          a.appendTo(a.find(".content"), n);
+            a.appendTo(a.find(".content"), n);
+            return n;
+          }
+
+          function normalizeCommentPath(path) {
+            var p = decodeURIComponent(path || '/').trim();
+            if (!p || p === '#') return '/';
+            if (p.charAt(0) !== '/') p = '/' + p;
+            p = p.replace(/\/\.\//g, '/');
+            p = p.replace(/\/{2,}/g, '/');
+            // 统一 README 首页写法
+            if (p === '/README' || p === '/README.md' || p === '/./README') return '/README';
+            return p;
+          }
+
+          // 动态插入 div#tcomment 的 dom 
+          hook.mounted(function () {
+            ensureTcomment();
           })
           
           // twikoo 初始化控制变量
           var twikooTimer = null;
+          var twikooObserver = null;
+          var twikooLoading = false;
           var lastPath = null;
+
+          function loadTwikoo(path) {
+            if (twikooLoading) return;
+            twikooLoading = true;
+            twikoo.init({
+                envId: 'https://twikooeo.sicnuwiki.com',
+                el: '#tcomment',
+                lang: 'zh-CN',
+                path: path,
+                onCommentLoaded: function () {
+                  window.ViewImage && ViewImage.init('.tk-content img:not(.avatar,.tk-avatar-img,.tk-owo-emotion),.ebook img,a.zoom');
+                }
+            }).then(function () {
+              twikooLoading = false;
+              // 可选：强制刷新一次，确保切换页面后评论更新
+              setTimeout(function () {
+                var tkIcon = document.getElementsByClassName("tk-icon")[0];
+                if (tkIcon) tkIcon.click();
+              }, 200);
+            }).catch(function () {
+              twikooLoading = false;
+            });
+          }
+
+          function observeAndLoad(path) {
+            if (twikooObserver) {
+              twikooObserver.disconnect();
+              twikooObserver = null;
+            }
+            if (twikooTimer) {
+              clearTimeout(twikooTimer);
+              twikooTimer = null;
+            }
+
+            var tcomment = ensureTcomment();
+            if (!tcomment) return;
+
+            if (!('IntersectionObserver' in window)) {
+              twikooTimer = setTimeout(function () {
+                loadTwikoo(path);
+              }, 0);
+              return;
+            }
+
+            twikooObserver = new IntersectionObserver(function (entries) {
+              if (!entries || !entries.length) return;
+              if (entries[0].isIntersecting) {
+                if (twikooObserver) {
+                  twikooObserver.disconnect();
+                  twikooObserver = null;
+                }
+                twikooTimer = setTimeout(function () {
+                  loadTwikoo(path);
+                }, 0);
+              }
+            }, { rootMargin: '200px 0px' });
+
+            twikooObserver.observe(tcomment);
+          }
           
           // 调用 twikoo 评论，正则 path，刷新当前评论
           hook.doneEach(function () {
             // 获取当前 docsify 页面路径作为评论区分标识
-            function normalizeCommentPath(path) {
-              var p = decodeURIComponent(path || '/').trim();
-              if (!p || p === '#') return '/';
-              if (p.charAt(0) !== '/') p = '/' + p;
-              p = p.replace(/\/\.\//g, '/');
-              p = p.replace(/\/{2,}/g, '/');
-              // 统一 README 首页写法
-              if (p === '/README' || p === '/README.md' || p === '/./README') return '/README';
-              return p;
-            }
             var currentPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
             
             // 如果路径相同，不重复初始化
@@ -254,36 +323,13 @@
             }
             lastPath = currentPath;
             
-            // 取消之前的延迟初始化（防止快速切换页面导致叠加）
-            if (twikooTimer) {
-              clearTimeout(twikooTimer);
-              twikooTimer = null;
-            }
-            
             // 先清空评论容器，避免叠加
-            var tcomment = document.getElementById('tcomment');
+            var tcomment = ensureTcomment();
             if (tcomment) {
               tcomment.innerHTML = '';
             }
-            
-            // 延迟加载 twikoo，避免影响页面滑动性能
-            twikooTimer = setTimeout(function() {
-              // 再次检查路径是否仍然匹配（用户可能已切换）
-              var nowPath = normalizeCommentPath(vm.route.path || location.hash.replace(/^#/, '').replace(/\?.*$/, '') || '/');
-              if (nowPath !== currentPath) {
-                return;
-              }
-              
-              twikoo.init({
-                  envId: 'https://twikooeo.sicnuwiki.com',
-                  el: '#tcomment',
-                  lang: 'zh-CN',
-                  path: currentPath,
-                  onCommentLoaded: function () {
-                    window.ViewImage && ViewImage.init('.tk-content img:not(.avatar,.tk-avatar-img,.tk-owo-emotion),.ebook img,a.zoom');
-                  }
-              });
-            }, 300);
+
+            observeAndLoad(currentPath);
           })
         }
       ]
