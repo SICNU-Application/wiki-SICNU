@@ -288,9 +288,92 @@
     }
   </script>
 
-<!-- 不蒜子-访问量统计 -->
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<!-- 不蒜子初始化 -->
+<!-- 不蒜子-访问量统计（多源备份 + 重试机制） -->
+  <script>
+    (function() {
+      // 多个不蒜子源，按优先级排序
+      var sources = [
+        'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js',
+        'https://npm.elemecdn.com/busuanzi@2.3.0/bsz.pure.mini.js',
+        'https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js'
+      ];
+      var currentSourceIndex = 0;
+      var timeout = 4000; // 4秒超时
+      var loaded = false;
+      
+      function loadScript(url) {
+        return new Promise(function(resolve, reject) {
+          if (loaded) return resolve();
+          
+          var script = document.createElement('script');
+          script.src = url;
+          script.async = true;
+          
+          var timer = setTimeout(function() {
+            script.onload = script.onerror = null;
+            if (script.parentNode) script.parentNode.removeChild(script);
+            reject(new Error('Timeout: ' + url));
+          }, timeout);
+          
+          script.onload = function() {
+            clearTimeout(timer);
+            loaded = true;
+            console.log('[Busuanzi] ✅ 加载成功：' + url);
+            resolve();
+          };
+          
+          script.onerror = function() {
+            clearTimeout(timer);
+            if (script.parentNode) script.parentNode.removeChild(script);
+            reject(new Error('Load failed: ' + url));
+          };
+          
+          document.head.appendChild(script);
+        });
+      }
+      
+      function tryNextSource() {
+        if (currentSourceIndex >= sources.length) {
+          console.warn('[Busuanzi] ⚠️ 所有源都失败了');
+          showFallback();
+          return;
+        }
+        
+        var url = sources[currentSourceIndex];
+        console.log('[Busuanzi] 尝试源 ' + (currentSourceIndex + 1) + '/' + sources.length + '：' + url);
+        
+        loadScript(url)
+          .catch(function(err) {
+            console.warn('[Busuanzi] ❌ ' + err.message);
+            currentSourceIndex++;
+            setTimeout(tryNextSource, 500);
+          });
+      }
+      
+      function showFallback() {
+        // 所有源失败后显示友好提示
+        var pvContainer = document.getElementById('busuanzi_container_site_pv');
+        var uvContainer = document.getElementById('busuanzi_container_site_uv');
+        if (pvContainer) {
+          pvContainer.style.display = 'inline';
+          var pvValue = document.getElementById('busuanzi_value_site_pv');
+          if (pvValue && !pvValue.innerText) pvValue.innerText = '🔄';
+        }
+        if (uvContainer) {
+          uvContainer.style.display = 'inline';
+          var uvValue = document.getElementById('busuanzi_value_site_uv');
+          if (uvValue && !uvValue.innerText) uvValue.innerText = '🔄';
+        }
+      }
+      
+      // 开始加载
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', tryNextSource);
+      } else {
+        tryNextSource();
+      }
+    })();
+  </script>
 
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
