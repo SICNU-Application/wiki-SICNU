@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-06-05
+- seo：主页新增 `rel="canonical"`、`og:url`、`robots` 元信息，明确规范首页为 `https://www.sicnuwiki.com/`
+- seo：主页新增前端 URL 归一化逻辑，访问 `http`、非 `www`、`/index.html` 时自动跳转到规范首页
+- seo：新增 `docs/robots.txt` 与 `docs/sitemap.xml`，向搜索引擎提供统一抓取入口
+- seo：历史首页备份文件新增 `noindex,nofollow` 与规范首页声明，避免被搜索引擎识别为重复页
+
 ## 2026-02-03
 - fix：修复 `sicnu.wiki` 错误链接导致搜索插件 404 报错
 - twikoo：修复 `cdn.staticfile.org` 不稳定导致评论系统加载失败的问题

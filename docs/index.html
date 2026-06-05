@@ -13,8 +13,37 @@
   <!-- 如果要走301重定向的跳转方式 -->
   <!-- <meta http-equiv="refresh" content="0; url=https://www.sicnuwiki.com"> -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
+  <meta name="description" content="四川师范大学飞跃手册，收录川师大学习、升学、就业与经验分享内容。">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="canonical" href="https://www.sicnuwiki.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sicnuwiki.com/">
+  <script>
+    (function () {
+      var currentUrl = new URL(window.location.href);
+      var shouldNormalize = false;
+
+      if (currentUrl.protocol !== 'https:') {
+        currentUrl.protocol = 'https:';
+        shouldNormalize = true;
+      }
+
+      if (currentUrl.hostname === 'sicnuwiki.com') {
+        currentUrl.hostname = 'www.sicnuwiki.com';
+        shouldNormalize = true;
+      }
+
+      if (currentUrl.pathname === '/index.html' || currentUrl.pathname === '') {
+        currentUrl.pathname = '/';
+        shouldNormalize = true;
+      }
+
+      if (shouldNormalize) {
+        window.location.replace(currentUrl.toString());
+      }
+    })();
+  </script>
   
   <!-- 默认样式 -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
