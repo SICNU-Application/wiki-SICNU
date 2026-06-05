@@ -5,6 +5,8 @@
 - seo：主页新增前端 URL 归一化逻辑，访问 `http`、非 `www`、`/index.html` 时自动跳转到规范首页
 - seo：新增 `docs/robots.txt` 与 `docs/sitemap.xml`，向搜索引擎提供统一抓取入口
 - seo：历史首页备份文件新增 `noindex,nofollow` 与规范首页声明，避免被搜索引擎识别为重复页
+- seo：移除评论区初始化后的自动图标点击，避免首页摘要被表情面板字符污染
+- seo：为评论容器增加 `data-nosnippet`，并补充首页/分享卡片描述文本，提升 Google 摘要可读性
 
 ## 2026-02-03
 - fix：修复 `sicnu.wiki` 错误链接导致搜索插件 404 报错

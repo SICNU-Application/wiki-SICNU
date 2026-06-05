@@ -18,7 +18,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="canonical" href="https://www.sicnuwiki.com/">
   <meta property="og:type" content="website">
+  <meta property="og:title" content="四川师范大学飞跃手册">
+  <meta property="og:description" content="四川师范大学飞跃手册，收录川师大学习、升学、就业与经验分享内容，帮助川师学子获取真实经验与路径参考。">
   <meta property="og:url" content="https://www.sicnuwiki.com/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="四川师范大学飞跃手册">
+  <meta name="twitter:description" content="四川师范大学飞跃手册，收录川师大学习、升学、就业与经验分享内容，帮助川师学子获取真实经验与路径参考。">
   <script>
     (function () {
       var currentUrl = new URL(window.location.href);
@@ -274,6 +279,7 @@
             var a = Docsify.dom;
             var n = a.create('div');
             n.id = 'tcomment';
+            n.setAttribute('data-nosnippet', '');
             var content = a.find('.content');
             if (content) {
               a.appendTo(content, n);
@@ -324,11 +330,6 @@
                   onCommentLoaded: function () {
                     window.ViewImage && ViewImage.init('.tk-content img:not(.avatar,.tk-avatar-img,.tk-owo-emotion),.ebook img,a.zoom');
                   }
-              }).then(function () {
-                setTimeout(function () {
-                  var tkIcon = document.getElementsByClassName("tk-icon")[0];
-                  if (tkIcon) tkIcon.click();
-                }, 300);
               });
             }, 10000); // 最多等待 10 秒
           })
