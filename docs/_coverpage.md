@@ -32,9 +32,7 @@
 <a href='https://github.com/SICNU-Application/wiki-SICNU/network/members'><img src='https://img.shields.io/github/forks/SICNU-Application/wiki-SICNU' alt='fork'></img></a>
 <br>
 
-[Github](https://github.com/SICNU-Application/wiki-SICNU) [点击进入](./README)
-
-<!-- [点击进入](./README.md) --> 
+[Github](https://github.com/SICNU-Application/wiki-SICNU) [点击进入](./#/)
 <!-- 添加背景图片 -->
 <!-- ![sicnu风景.jpeg](src/sicnu风景.webp) -->
 ![sicnu风景](https://www.sicnuwiki.com/Img/sicnu%E9%A3%8E%E6%99%AF.webp)

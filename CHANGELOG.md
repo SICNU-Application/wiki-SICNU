@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-06-09
+- seo：为 Google 已知的历史 404 URL（`/en/`、`/README`、`/.*/_sidebar.md`）新增静态兜底页，返回 `noindex` 与规范首页 canonical
+- seo：移除首页源码中不再使用的 `/en/` 分页文案和明文 `/.*/_sidebar.md` alias 字符串，减少爬虫继续发现旧路径
+- deploy：对无扩展名 `/README` 与 `/.*/_sidebar.md` 兜底对象显式上传为 `text/html; charset=utf-8`
+
 ## 2026-06-05
 - seo：主页新增 `rel="canonical"`、`og:url`、`robots` 元信息，明确规范首页为 `https://www.sicnuwiki.com/`
 - seo：主页新增前端 URL 归一化逻辑，访问 `http`、非 `www`、`/index.html` 时自动跳转到规范首页

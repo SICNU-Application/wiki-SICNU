@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
  
   <!-- 白天、夜间模式切换 -->
@@ -189,14 +189,14 @@
 <body>
   <div id="app"></div>
   <script>
+    var sidebarAlias = {};
+    sidebarAlias['/' + '.*' + '/_sidebar.md'] = '/_sidebar.md';
+
     window.$docsify = {
     // 上下页跳转
     pagination: { 
       previousText: '上一章节',
-      nextText: {
-       '/en/': 'NEXT',
-       '/': '下一章节'
-      },
+      nextText: '下一章节',
     crossChapter: true,
     crossChapterText: true,
     },
@@ -219,9 +219,7 @@
       // load DIY SideBar
       ,loadSidebar: true
       // 统一使用根目录侧边栏，避免子目录 404
-      ,alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
-      }
+      ,alias: sidebarAlias
       //设置侧边栏的目录名作为正文的标题
       ,autoHeader: true
       //侧边栏顶部标题
